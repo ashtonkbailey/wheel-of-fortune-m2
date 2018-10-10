@@ -48,11 +48,11 @@ We use SemVer for versioning. For the versions available, see the tags on this r
 Authors
 Ashley Levi
 Ashton Bailey
-[This](../DTR.md) is our preliminary DTR.
+[This](/DTR.md) is our preliminary DTR.
 
 ### Wireframe
-[This](../images/wheel-of-fortune-wireframe.png)is our final project spec.
+[This](/images/wheel-of-fortune-wireframe.png)is our final project spec.
 
 ### Acknowledgments/Inspiration
-[This](../images/wof-design-inspo.png) is the inspiration for our final design. The inspirational game can be found [here](http://en.gameslol.net/wheel-of-fortune-786.html).
+[This](/images/wof-design-inspo.png) is the inspiration for our final design. The inspirational game can be found [here](http://en.gameslol.net/wheel-of-fortune-786.html).
 
