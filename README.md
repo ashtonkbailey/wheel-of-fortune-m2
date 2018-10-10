@@ -51,7 +51,7 @@ Ashton Bailey
 [This](/DTR.md) is our preliminary DTR.
 
 ### Wireframe
-[This](/images/wheel-of-fortune-wireframe.png)is our final project spec.
+[This](/images/wheel-of-fortune-wireframe.png) is our final project spec.
 
 ### Acknowledgments/Inspiration
 [This](/images/wof-design-inspo.png) is the inspiration for our final design. The inspirational game can be found [here](http://en.gameslol.net/wheel-of-fortune-786.html).
