@@ -56,7 +56,7 @@ h2 {
 }
 
 .row {
-display: flex;
+  display: flex;
 }
 
 .letters-and-game-buttons {
@@ -71,4 +71,19 @@ display: flex;
 
 .letter-bank {
   
+}
+
+.quit-and-new-game-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.quit-button {
+  margin-bottom: 10px;
+}
+
+.quit-button,
+.new-game-button {
+  font-size: 18px;
+  padding: 10px;
 }
