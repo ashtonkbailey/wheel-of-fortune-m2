@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="welcome-page show">
+<div class="welcome-page">
   <section class="wheel-of-fortune">
     <h1>WHEEL OF FORTUNE</h1>
   </section>
@@ -33,27 +33,27 @@
     <button class="continue-button">CONTINUE</button>
   </section>
 </div>
-<div class="game-page hidden">
+<div class="game-page">
   <h2>ROUND 1</h2>
   <header class="score-board">
-    <div class="player-1">
-      <p>PLAYER 1</p>
-      <p>SCORE $100</p>
-      <p>GRAND TOTAL $3,050</p>
+    <div class="player player-1">
+      <p class="text player-text">PLAYER 1</p>
+      <p class="text score-text">SCORE $100</p>
+      <p class="text total-text">GRAND TOTAL $3,050</p>
     </div>
-    <div class="player-2">
-      <p>PLAYER 2</p>
-      <p>SCORE $500</p>
-      <p>GRAND TOTAL $1,700</p>
+    <div class="player player-2">
+      <p class="text player-text">PLAYER 2</p>
+      <p class="text score-text">SCORE $500</p>
+      <p class="text total-text">GRAND TOTAL $1,700</p>
     </div>
-    <div class="player-3">
-      <p>PLAYER 3</p>
-      <p>SCORE $800</p>
-      <p>GRAND TOTAL $7,300</p>
+    <div class="player player-3">
+      <p class="text player-text">PLAYER 3</p>
+      <p class="text score-text">SCORE $800</p>
+      <p class="text total-text">GRAND TOTAL $7,300</p>
     </div>
   </header>
-  <main class="game-board"> 
-    <div class="row-1"> 
+  <main class="container game-board"> 
+    <div class="row row-1"> 
       <div class="box box1">1</div>
       <div class="box box2">2</div>
       <div class="box box3">3</div>
@@ -67,7 +67,7 @@
       <div class="box box11">11</div>
       <div class="box box12">12</div>
     </div> 
-    <div class="row-2">
+    <div class="row row-2">
       <div class="box box13">13</div>
       <div class="box box14">14</div>
       <div class="box box15">15</div>
@@ -80,30 +80,32 @@
       <div class="box box22">22</div>
       <div class="box box23">23</div>
       <div class="box box24">24</div>
+      <div class="box box23">25</div>
+      <div class="box box24">26</div>
     </div> 
-    <div class="row-3">
-      <div class="box box25">25</div>
-      <div class="box box26">26</div>
-      <div class="box box27">27</div>
-      <div class="box box28">28</div>
-      <div class="box box29">29</div>
-      <div class="box box30">30</div>
-      <div class="box box31">31</div>
-      <div class="box box32">32</div>
-      <div class="box box33">33</div>
-      <div class="box box34">34</div>
-      <div class="box box35">35</div>
-      <div class="box box36">36</div>
+    <div class="row row-3">
+      <div class="box box25">27</div>
+      <div class="box box26">28</div>
+      <div class="box box27">29</div>
+      <div class="box box28">30</div>
+      <div class="box box29">31</div>
+      <div class="box box30">32</div>
+      <div class="box box31">33</div>
+      <div class="box box32">34</div>
+      <div class="box box33">35</div>
+      <div class="box box34">36</div>
+      <div class="box box35">37</div>
+      <div class="box box36">38</div>
     </div>
   </main>
-  <section class="category">
+  <section class="container category">
     <p>Around the House</p>
   </section>
-  <aside class="quit-and-new-game-buttons">
+  <aside class="container quit-and-new-game-buttons">
     <button>QUIT</button>
     <button>NEW GAME</button>
   </aside>
-  <section class="letters-and-game-buttons">
+  <section class="container letters-and-game-buttons">
     <div class="letter-bank">
     <p>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
     </div>
@@ -113,7 +115,7 @@
       <button>SOLVE PUZZLE</button>
     </div>
   </section>
-  <footer class="player-prompting">
+  <footer class="container player-prompting">
     <p>PLAYER 1: YOU LANDED ON $300</p>
   </footer>
 </div>
