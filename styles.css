@@ -58,3 +58,7 @@ h2 {
 .row {
 display: flex;
 }
+
+.letter-bank {
+  margin-top: 30px;
+}
