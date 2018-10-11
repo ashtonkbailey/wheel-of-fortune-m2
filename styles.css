@@ -1,5 +1,7 @@
 body {
-   background: linear-gradient(90deg, rgba(2,0,36,1) 16%, rgba(89,9,121,1) 72%, rgba(48,71,167,1) 100%, rgba(0,119,255,1) 100%);
+   background-image: url("christopher-burns-286419-unsplash.jpg");
+   background-repeat: no-repeat;
+    background-size: cover;
    font-family: 'Roboto', sans-serif;
 }
 
