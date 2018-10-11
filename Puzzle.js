@@ -1,6 +1,6 @@
 class Puzzle {
 	constructor() {
-		this.guessedLetter = guessedLetter;
+		this.guessedLetter = '';
 		this.currentPuzzle = null;
 	}
 
@@ -30,12 +30,8 @@ class Puzzle {
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 			this.currentPuzzle =  randomPuzzle;
+			console.log(this.currentPuzzle)
 		}
-	}
-
-
-	displayCategory() {
-		//display category as a hint
 	}
 
 	bonusRoundDisplay() {
@@ -44,4 +40,6 @@ class Puzzle {
 
 }
 
-module.exports = Puzzle;
+if (typeof module !== 'undefined') {
+  module.exports = Puzzle;
+}

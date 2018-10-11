@@ -15,4 +15,6 @@ class Wheel {
 
 }
 
-module.exports = Wheel;
+if (typeof module !== 'undefined') {
+  module.exports = Wheel;
+}

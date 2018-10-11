@@ -1,3 +1,5 @@
+let puzzle;
+
 class Round {
 	constructor(currCategory, currWheel, currPlayer) {
 		this.currCategory;
@@ -6,8 +8,10 @@ class Round {
 	}
 
 	startRound() {
-		Puzzle.getCategory();
-		//call new wheel
+		puzzle = new Puzzle();
+		puzzle.getCategory();
+		domUpdates.displayCategory();
+		// Wheel.newWheel();
 		//call reset player turn
 	}
 
@@ -26,4 +30,6 @@ class Round {
 
 }
 
-module.exports = Round;
+if (typeof module !== 'undefined') {
+  module.exports = Round;
+}

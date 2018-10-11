@@ -24,4 +24,6 @@ class Player {
   
 }
 
-module.exports = Player;
+if (typeof module !== 'undefined') {
+  module.exports = Player;
+}

@@ -1,11 +1,18 @@
+let round;
+
 class Game {
 	constructor(playerTurn) {
 		this.currentRound = 1;
 		this.playerTurn = playerTurn;
 	}
 
-
+	startGame() {
+		round = new Round();
+		round.startRound();
+	}
 
 }
 
-module.exports = Game;
+if (typeof module !== 'undefined') {
+  module.exports = Game;
+}
