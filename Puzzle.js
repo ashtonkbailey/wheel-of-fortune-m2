@@ -1,6 +1,10 @@
+const data = require('./library.js')
+
+
 class Puzzle {
 	constructor() {
 		this.guessedLetter = guessedLetter;
+		this.currentPuzzle = null;
 	}
 
 	displayLetter() {
@@ -19,9 +23,19 @@ class Puzzle {
 		//if puzzle is solved correctly, show answer
 	}
 
-	getCategory() {
-		//will choose a category from the puzzleBank array
+	generateRandomNumber(puzzleBankLength) {
+		return Math.floor(Math.random() * (puzzleBankLength + 1));
 	}
+
+	getCategory() {
+		if (game.currentRound = 1) {
+			let puzzleBankLength = data.puzzles.one_word_answers.puzzle_bank.length
+			let randomNum = this.generateRandomNumber(puzzleBankLength);
+			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
+			this.currentPuzzle =  randomPuzzle;
+		}
+	}
+
 
 	displayCategory() {
 		//display category as a hint
