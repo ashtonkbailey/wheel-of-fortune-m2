@@ -14,14 +14,17 @@ body {
   grid-template-rows: auto;
 }
 
+
+
 h2 {
   text-align: center;
   margin: 20px;
   font-size: 30px;
   font-weight: 700;
   color: #000;
-  /*-webkit-text-stroke: 1px #FFF;*/
    color: white;
+    animation-duration: 1s;
+    animation-name: slidein;
    text-shadow:
        3px 3px 0 #000,
      -1px -1px 0 #000,  
@@ -29,6 +32,20 @@ h2 {
       -1px 1px 0 #000,
        1px 1px 0 #000;
 }
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+
+
 
 .score-board {
   display: flex;
@@ -58,6 +75,18 @@ h2 {
 .player-text {
   font-size: 20px;
   font-weight: 700;
+
+}
+
+.player-one-name {
+  color: purple;
+  animation: blink 1.3s linear infinite;
+}
+
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
 }
 
 .score-text, .total-text {
@@ -142,6 +171,9 @@ span {
   padding: 10px;
   margin-bottom: 70px;
   background-color: #8ea0c2;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
   border-radius: 20%;
   color: white;
    text-shadow:
@@ -150,7 +182,15 @@ span {
        -1px -1px 0 #000, 
        -1px 2px 2px #000, 
        2px 2px 2px #000
+}
 
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
 
 .row {
@@ -195,7 +235,13 @@ span {
 .game-button {
   margin-right: 5px;
   font-size: 15px;
+  color: purple;
 }
+
+.spin-text {
+  color: purple;
+}
+
 
 .game-prompt {
    color: white;
@@ -211,5 +257,7 @@ button:hover {
   filter: brightness(65%);
   color: purple;
 }
+
+
 
 
