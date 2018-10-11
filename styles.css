@@ -29,7 +29,7 @@ h2 {
   margin: 0 30px 30px 30px;
   padding: 10px 20px 0px 20px;
   text-align: center;
-  background-color: #B6BDC0;
+  background-color: #FFF;
 }
 
 .text {
@@ -39,6 +39,14 @@ h2 {
 .player-text {
   font-size: 20px;
   font-weight: 700;
+}
+
+.score-text, .total-text {
+   font-weight: 700;
+}
+
+span {
+  color: #08e8bc;
 }
 
 .quit-and-new-game-buttons {
@@ -53,6 +61,7 @@ h2 {
 
 .quit-button,
 .new-game-button {
+  font-weight: 700;
   padding: 10px 20px;
   color: #000000;
   padding: 10px 20px;
@@ -95,8 +104,13 @@ h2 {
   border: 5px solid black;
   width: 80px;
   height: 80px;
-  background-color: white;
-  
+  background-color: white; 
+}
+
+.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10,.box11, .box12, .box25, .box26, .box27, .box28, .box29, .box30, .box31, .box32, .box33, .box34, .box35, .box36 {
+  background-image: url("box-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .category {
@@ -109,7 +123,6 @@ h2 {
   margin-bottom: 70px;
   background-color: #B6BDC0;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-
 }
 
 .row {
