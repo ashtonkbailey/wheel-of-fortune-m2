@@ -1,6 +1,19 @@
+let game;
+
+
 const domUpdates = {
-  startGame() {
-  startContainer.classList.add('hide')}
+  hideStartMenu() {
+	  startContainer.classList.add('hide');
+	  game = new Game;
+	  game.startGame();
+	},
+
+	displayCategory() {
+		let category = puzzle.currentPuzzle.category;
+
+		categoryDisplay.innerText = category;
+	}
+
 };
 
 
