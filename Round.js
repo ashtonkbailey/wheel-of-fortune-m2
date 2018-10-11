@@ -1,3 +1,5 @@
+const Puzzle = require('./Puzzle.js')
+
 class Round {
 	constructor(currCategory, currWheel, currPlayer) {
 		this.currCategory;
@@ -6,7 +8,7 @@ class Round {
 	}
 
 	startRound() {
-		//call new puzzle
+		Puzzle.getCategory();
 		//call new wheel
 		//call reset player turn
 	}

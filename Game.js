@@ -1,13 +1,12 @@
+const data = require('./library.js')
+
+
 class Game {
-	constructor(currentRound, puzzleBank, playerTurn) {
-		this.currentRound = currentRound;
-		this.puzzleBank = puzzleBank;
-		this.playerTurn = playerTurn
+	constructor(playerTurn) {
+		this.currentRound = 1;
+		this.playerTurn = playerTurn;
 	}
 
-	getPuzzleBank() {
-
-	}
 
 
 }

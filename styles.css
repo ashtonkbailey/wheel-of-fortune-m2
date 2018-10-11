@@ -1,3 +1,8 @@
+/*@font-face {
+ font-family: ‘Fortune’;
+ src: url(‘fortune-font/wheel-font.ttf’)format(‘truetype’);
+}*/
+
 body {
    background-image: url("christopher-burns-286419-unsplash.jpg");
    background-repeat: no-repeat;
@@ -5,9 +10,74 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
-/*modal to start game*/
+
+/*window to start game*/
 .welcome-page {
-  display: none;
+  border: 5px solid black;
+  background-color: #000;
+  width: 700px;
+  height: 450px;
+  display: flex;
+  font-size: 20px;
+  bottom: 137px;
+  right: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: #FFF;
+  border-radius: 50%;
+  /*display: none;*/
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 10px;  
+  color: purple;
+  font-family: ‘Fortune’;
+}
+
+input {
+  width: 300px;
+  height: 20px;
+}
+
+.enter-name-label {
+  text-align: center;
+  margin: 15px 0 15px 0;
+}
+
+.start-button {
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 700;
+  padding: 10px 20px;
+  color: purple;
+  padding: 10px 20px;
+  background: -moz-linear-gradient(
+    top,
+    #d6d6d6 0%,
+    #424142);
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    from(#d6d6d6),
+    to(#424142));
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  border: 3px solid #ffffff;
+  -moz-box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  -webkit-box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,0.3);
 }
 
 /*main game page*/
@@ -23,8 +93,7 @@ h2 {
   margin: 20px;
   font-size: 30px;
   font-weight: 700;
-  color: #000;
-  color: white;
+  color: #FFF;
   animation-duration: 1s;
   animation-name: slidein;
   text-shadow:
@@ -258,4 +327,8 @@ button:hover {
        -1px -1px 0 #000, 
        -1px 2px 2px #000, 
        2px 2px 2px #000
+}
+
+.hide {
+  display: none;
 }
