@@ -1,7 +1,7 @@
 class BonusRound extends Round {
-	constructor(currCategory, currWheel, currPlayer) {
-		super(currCategory);
-		this.bonusWheel;
+	constructor(currCategory, currWheel, currPlayer, bonusWheel) {
+		super(currCategory, currWheel, currPlayer);
+		this.bonusWheel = bonusWheel;
 	}
 
 	getBonusWheel() {
@@ -9,3 +9,5 @@ class BonusRound extends Round {
 	}
 
 }
+
+module.exports = BonusRound;

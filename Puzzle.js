@@ -1,6 +1,3 @@
-const data = require('./library.js')
-
-
 class Puzzle {
 	constructor() {
 		this.guessedLetter = guessedLetter;
@@ -46,3 +43,5 @@ class Puzzle {
 	}
 
 }
+
+module.exports = Puzzle;

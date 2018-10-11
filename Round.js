@@ -1,5 +1,3 @@
-const Puzzle = require('./Puzzle.js')
-
 class Round {
 	constructor(currCategory, currWheel, currPlayer) {
 		this.currCategory;
@@ -27,3 +25,5 @@ class Round {
 	}
 
 }
+
+module.exports = Round;
