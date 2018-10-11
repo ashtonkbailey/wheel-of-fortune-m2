@@ -1,7 +1,13 @@
+body {
+   background-image: url("christopher-burns-286419-unsplash.jpg");
+   background-repeat: no-repeat;
+    background-size: cover;
+   font-family: 'Roboto', sans-serif;
+}
+
 .welcome-page {
   display: none;
 }
-
 
 .game-page {
   display: grid;
@@ -13,6 +19,15 @@ h2 {
   margin: 20px;
   font-size: 30px;
   font-weight: 700;
+  color: #000;
+  /*-webkit-text-stroke: 1px #FFF;*/
+   color: white;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 .score-board {
@@ -26,15 +41,33 @@ h2 {
   margin: 0 30px 30px 30px;
   padding: 10px 20px 0px 20px;
   text-align: center;
+  background-color: #8ea0c2;
 }
 
 .text {
   margin-bottom: 10px;
+  color: white;
+   text-shadow:
+       3px 3px 8px #000, 
+       3px 3px 8px #000, 
+       -1px -1px 0 #000, 
+       -1px 2px 2px #000, 
+       2px 2px 2px #000
 }
 
 .player-text {
   font-size: 20px;
   font-weight: 700;
+}
+
+.score-text, .total-text {
+  font-size: 14px;
+   font-weight: 700;
+}
+
+span {
+  color: #08e8bc;
+  font-size: 25px;
 }
 
 .quit-and-new-game-buttons {
@@ -44,14 +77,42 @@ h2 {
 }
 
 .quit-button {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .quit-button,
-.new-game-button {
-  font-size: 17px;
-  padding: 10px;
+.new-game-button, .game-button {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 20px;
+  color: #000000;
+  padding: 10px 20px;
+  background: -moz-linear-gradient(
+    top,
+    #d6d6d6 0%,
+    #424142);
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    from(#d6d6d6),
+    to(#424142));
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  border: 3px solid #ffffff;
+  -moz-box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  -webkit-box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  box-shadow:
+    0px 3px 11px rgba(0,0,0,0.5),
+    inset 0px 0px 1px rgba(130,127,130,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,0.3);
 }
+
 
 .game-board {
   display: flex;
@@ -60,9 +121,16 @@ h2 {
 }
 
 .box {
-  border: 1px solid black;
+  border: 5px solid black;
   width: 80px;
   height: 80px;
+  background-color: white; 
+}
+
+.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10,.box11, .box12, .box25, .box26, .box27, .box28, .box29, .box30, .box31, .box32, .box33, .box34, .box35, .box36 {
+  background-image: url("box-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .category {
@@ -73,6 +141,16 @@ h2 {
   width: 300px;
   padding: 10px;
   margin-bottom: 70px;
+  background-color: #8ea0c2;
+  border-radius: 20%;
+  color: white;
+   text-shadow:
+       3px 3px 8px #000, 
+       3px 3px 8px #000, 
+       -1px -1px 0 #000, 
+       -1px 2px 2px #000, 
+       2px 2px 2px #000
+
 }
 
 .row {
@@ -86,19 +164,52 @@ h2 {
   border: 1px solid black;
   margin: 0 auto;
   justify-content: center;
-  font-size: 20px;
   padding: 10px 0 10px 0;
+  background-color: #8ea0c2;
 }
 
 .letter-bank {
-  margin-right: 30px;
+  display: flex;
+  margin-right: 10px;
+  padding-top: 8px;
+}
+
+.letters {
+  font-weight: 700;
+  font-size: 23px;
+  display: flex;
+  margin: 5px;
+  color: white;
+  text-shadow:
+      3px 3px 8px #000, 
+      3px 3px 8px #000, 
+      -1px -1px 0 #000, 
+      -1px 2px 2px #000, 
+      2px 2px 2px #000
+}
+
+.letters:hover {
+  color: purple;
 }
 
 .game-button {
-  margin-right: 20px;
+  margin-right: 5px;
   font-size: 15px;
-
 }
 
+.game-prompt {
+   color: white;
+   text-shadow:
+       3px 3px 8px #000, 
+       3px 3px 8px #000, 
+       -1px -1px 0 #000, 
+       -1px 2px 2px #000, 
+       2px 2px 2px #000
+}
+
+button:hover {
+  filter: brightness(65%);
+  color: purple;
+}
 
 
