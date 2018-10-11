@@ -1,31 +1,33 @@
 body {
    background-image: url("christopher-burns-286419-unsplash.jpg");
    background-repeat: no-repeat;
-    background-size: cover;
+   background-size: cover;
    font-family: 'Roboto', sans-serif;
 }
 
+/*modal to start game*/
 .welcome-page {
   display: none;
 }
 
+/*main game page*/
 .game-page {
   display: grid;
   grid-template-rows: auto;
 }
 
 
-
+/*current round number label*/
 h2 {
   text-align: center;
   margin: 20px;
   font-size: 30px;
   font-weight: 700;
   color: #000;
-   color: white;
-    animation-duration: 1s;
-    animation-name: slidein;
-   text-shadow:
+  color: white;
+  animation-duration: 1s;
+  animation-name: slidein;
+  text-shadow:
        3px 3px 0 #000,
      -1px -1px 0 #000,  
       1px -1px 0 #000,
@@ -45,8 +47,7 @@ h2 {
   }
 }
 
-
-
+/*player score boards*/
 .score-board {
   display: flex;
   justify-content: center;
@@ -78,6 +79,17 @@ h2 {
 
 }
 
+
+.score-text, .total-text {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+span {
+  color: #08e8bc;
+  font-size: 25px;
+}
+
 .player-one-name {
   color: purple;
   animation: blink 1.3s linear infinite;
@@ -89,16 +101,8 @@ h2 {
 100%{opacity: 1;}
 }
 
-.score-text, .total-text {
-  font-size: 14px;
-   font-weight: 700;
-}
 
-span {
-  color: #08e8bc;
-  font-size: 25px;
-}
-
+/*quit game and new game buttons*/
 .quit-and-new-game-buttons {
   display: flex;
   flex-direction: column;
@@ -114,7 +118,7 @@ span {
   font-size: 15px;
   font-weight: 700;
   padding: 10px 20px;
-  color: #000000;
+  color: purple;
   padding: 10px 20px;
   background: -moz-linear-gradient(
     top,
@@ -142,11 +146,15 @@ span {
     0px 1px 0px rgba(255,255,255,0.3);
 }
 
-
+/*game board*/
 .game-board {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.row {
+  display: flex;
 }
 
 .box {
@@ -162,6 +170,7 @@ span {
   background-size: cover;
 }
 
+/*display for puzzle hint*/
 .category {
   margin: 0 auto;
   text-align: center;
@@ -193,10 +202,8 @@ span {
     }
 }
 
-.row {
-  display: flex;
-}
-
+/*display area for letters, game buttons 
+and player prompting*/
 .letters-and-game-buttons, .player-prompting {
   display: flex;
   margin-top: 80px;
@@ -238,10 +245,10 @@ span {
   color: purple;
 }
 
-.spin-text {
+button:hover {
+  filter: brightness(65%);
   color: purple;
 }
-
 
 .game-prompt {
    color: white;
@@ -252,12 +259,3 @@ span {
        -1px 2px 2px #000, 
        2px 2px 2px #000
 }
-
-button:hover {
-  filter: brightness(65%);
-  color: purple;
-}
-
-
-
-
