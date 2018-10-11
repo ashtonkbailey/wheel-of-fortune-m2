@@ -14,3 +14,5 @@ class Wheel {
   }
 
 }
+
+module.exports = Wheel;
