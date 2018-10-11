@@ -1,5 +1,6 @@
 body {
    background: linear-gradient(90deg, rgba(2,0,36,1) 16%, rgba(89,9,121,1) 72%, rgba(48,71,167,1) 100%, rgba(0,119,255,1) 100%);
+   font-family: 'Roboto', sans-serif;
 }
 
 .welcome-page {
@@ -42,11 +43,13 @@ h2 {
 }
 
 .score-text, .total-text {
+  font-size: 14px;
    font-weight: 700;
 }
 
 span {
   color: #08e8bc;
+  font-size: 25px;
 }
 
 .quit-and-new-game-buttons {
@@ -56,11 +59,12 @@ span {
 }
 
 .quit-button {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .quit-button,
 .new-game-button {
+  font-size: 15px;
   font-weight: 700;
   padding: 10px 20px;
   color: #000000;
@@ -90,8 +94,6 @@ span {
     0px -1px 0px rgba(000,000,000,0.2),
     0px 1px 0px rgba(255,255,255,0.3);
 }
-
-
 
 
 .game-board {
