@@ -5,37 +5,38 @@
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet">
 </head>
 <body>
 <!-- display welcome page to start game -->
 <div class="start-container">
-<div class="welcome-page">
-  <section class="wheel-of-fortune">
-    <h1>WHEEL OF FORTUNE</h1>
+  <section class="welcome-page">
+    <div class="wheel-of-fortune">
+      <h1>WHEEL OF FORTUNE</h1>
+    </div>
+    <div class="player-inputs">
+      <form>
+        <div class="player-1">
+          <label><p class="enter-name-label"">PLAYER 1</p>
+          <input type="text" class="name_one_input" placeholder="ENTER YOUR NAME">
+          </label>
+        </div>
+        <div class="player-2">
+          <label><p class="enter-name-label">PLAYER 2</p>
+          <input type="text" class="name_two_input" placeholder="ENTER YOUR NAME">
+          </label>
+        </div>
+        <div class="player-3-name">
+          <label><p class="enter-name-label">PLAYER 3</p>
+          <input type="text" class="name_three_input" placeholder="ENTER YOUR NAME">
+          </label>
+        </div>
+      </form>
+   </div>
+    <div class="start-game">
+      <button class="start-button">START GAME</button>
+    </div>
   </section>
-  <section class="player-inputs">
-    <form>
-      <div class="player-1">
-        <label><p class="enter-name-label"">PLAYER 1</p>
-        <input type="text" class="name_one_input" placeholder="ENTER YOUR NAME">
-        </label>
-      </div>
-      <div class="player-2">
-        <label><p class="enter-name-label">PLAYER 2</p>
-        <input type="text" class="name_two_input" placeholder="ENTER YOUR NAME">
-        </label>
-      </div>
-      <div class="player-3-name">
-        <label><p class="enter-name-label">PLAYER 3</p>
-        <input type="text" class="name_three_input" placeholder="ENTER YOUR NAME">
-        </label>
-      </div>
-    </form>
-  </section>
-  <section class="start-game">
-    <button class="start-button">START GAME</button>
-  </section>
-</div>
 </div>
 <!-- main game page -->
 <div class="game-page">
@@ -146,7 +147,7 @@
     </div>
   </section>
   <footer class="container player-prompting">
-    <p class="game-prompt">PLAYER 1: YOU LANDED ON <span>$300</span></p>
+    <p class="game-prompt"><span class="player-prompt">PLAYER 1</span>: YOU MUST CHOOSE TO EITHER <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p>
   </footer>
 </div>
 <script src = "domUpdates.js" type = "text/javascript"></script>
