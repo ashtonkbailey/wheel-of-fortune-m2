@@ -7,5 +7,6 @@ var nameThreeInput = document.querySelector('.name_three_input')
 var playerOneName = document.querySelector('.player-one-name');
 var playerTwoName = document.querySelector('.player-two-name');
 var playerThreeName = document.querySelector('.player-three-name');
+var currentRoundNumber = document.querySelector('h2');
 
 startButton.addEventListener('click', domUpdates.hideStartMenu)

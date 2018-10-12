@@ -17,24 +17,31 @@ body {
   background-color: #000;
   width: 700px;
   height: 450px;
-  display: flex;
   font-size: 20px;
   bottom: 137px;
   right: 400px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
   color: #FFF;
-  border-radius: 50%;
+  border-radius: 10%;
   /*display: none;*/
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 65px;
+  font-family: 'KoHo', sans-serif;
   margin-bottom: 10px;  
+  font-weight: 700;
   color: purple;
-  font-family: ‘Fortune’;
+  text-shadow:
+       3px 3px 8px #08e8bc, 
+       3px 3px 8px #08e8bc, 
+       -1px -1px 0 #08e8bc, 
+       -1px 2px 2px #08e8bc, 
+       2px 2px 2px #08e8bc
 }
 
 input {
@@ -94,8 +101,6 @@ h2 {
   font-size: 30px;
   font-weight: 700;
   color: #FFF;
-  animation-duration: 1s;
-  animation-name: slidein;
   text-shadow:
        3px 3px 0 #000,
      -1px -1px 0 #000,  
@@ -104,17 +109,6 @@ h2 {
        1px 1px 0 #000;
 }
 
-@keyframes slidein {
-  from {
-    margin-right: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-right: 0%;
-    width: 100%;
-  }
-}
 
 /*player score boards*/
 .score-board {
@@ -157,17 +151,6 @@ h2 {
 span {
   color: #08e8bc;
   font-size: 25px;
-}
-
-.player-one-name {
-  color: purple;
-  animation: blink 1.3s linear infinite;
-}
-
-@keyframes blink{
-0%{opacity: 0;}
-50%{opacity: .5;}
-100%{opacity: 1;}
 }
 
 
@@ -249,9 +232,6 @@ span {
   padding: 10px;
   margin-bottom: 70px;
   background-color: #8ea0c2;
-  animation-name: spin;
-  animation-duration: 1s;
-  animation-timing-function: linear;
   border-radius: 20%;
   color: white;
    text-shadow:
@@ -262,14 +242,6 @@ span {
        2px 2px 2px #000
 }
 
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
-}
 
 /*display area for letters, game buttons 
 and player prompting*/
@@ -319,6 +291,11 @@ button:hover {
   color: purple;
 }
 
+.player-prompt {
+  color: purple;
+  font-size: 17px;
+}
+
 .game-prompt {
    color: white;
    text-shadow:
@@ -331,4 +308,48 @@ button:hover {
 
 .hide {
   display: none;
+}
+
+/*animations*/
+.animatePlayerName {
+  color: purple;
+  animation: blink 1.3s linear infinite;
+}
+
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
+
+.animateRoundNumber {
+  animation-duration: 1.3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+
+.animateCategorydisplay {
+  animation-name: spin;
+  animation-duration: 1.3s;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

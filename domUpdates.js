@@ -7,6 +7,7 @@ const domUpdates = {
 	  game = new Game;
 	  game.startGame();
     updatePlayerNames();
+    addAnimation();
 
 	},
 
@@ -19,11 +20,18 @@ const domUpdates = {
 
 
 function updatePlayerNames() {
-  playerOneName.innerText = nameOneInput.value;
-  playerTwoName.innerText = nameTwoInput.value;
-  playerThreeName.innerText = nameThreeInput.value;
-  
+  playerOneName.innerText = nameOneInput.value || "PLAYER 1";
+  playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
+  playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";;
 }
+
+
+function addAnimation() {
+  playerOneName.classList.add('animatePlayerName');
+  currentRoundNumber.classList.add('animateRoundNumber');
+  categoryDisplay.classList.add('animateCategorydisplay')
+}
+
 
 
 if (typeof module !== 'undefined') {
