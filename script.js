@@ -8,5 +8,6 @@ var playerOneName = document.querySelector('.player-one-name');
 var playerTwoName = document.querySelector('.player-two-name');
 var playerThreeName = document.querySelector('.player-three-name');
 var currentRoundNumber = document.querySelector('h2');
+var gamePrompt = document.querySelector('.game-prompt')
 
 startButton.addEventListener('click', domUpdates.hideStartMenu)

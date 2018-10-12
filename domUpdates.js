@@ -4,6 +4,8 @@ let game;
 const domUpdates = {
   hideStartMenu() {
 	  startContainer.classList.add('hide');
+    gamePrompt.classList.add('show');
+
 	  game = new Game;
 	  game.startGame();
     updatePlayerNames();
@@ -31,6 +33,7 @@ function addAnimation() {
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
 }
+
 
 
 
