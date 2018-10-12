@@ -7,8 +7,17 @@ body {
    background-image: url("christopher-burns-286419-unsplash.jpg");
    background-repeat: no-repeat;
    background-size: cover;
+   background-position: center;
    font-family: 'Roboto', sans-serif;
 }
+
+/*.start-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 137px;
+  margin-left: 340px;
+}*/
 
 
 /*window to start game*/
@@ -27,7 +36,6 @@ body {
   position: absolute;
   color: #FFF;
   border-radius: 10%;
-  /*display: none;*/
 }
 
 h1 {
@@ -298,6 +306,7 @@ button:hover {
 
 .game-prompt {
    color: white;
+   display: none;
    text-shadow:
        3px 3px 8px #000, 
        3px 3px 8px #000, 
@@ -308,6 +317,10 @@ button:hover {
 
 .hide {
   display: none;
+}
+
+.show {
+  display: inline-block;
 }
 
 /*animations*/
