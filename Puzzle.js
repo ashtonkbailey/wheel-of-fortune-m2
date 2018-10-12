@@ -30,7 +30,6 @@ class Puzzle {
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 			this.currentPuzzle =  randomPuzzle;
-			console.log(this.currentPuzzle)
 		}
 	}
 

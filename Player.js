@@ -1,5 +1,5 @@
 class Player {
-  constructor(name, score, grandTotal) {
+  constructor(name, turn, score, grandTotal) {
     this.name = name;
     this.turn = false;
     this.score = score;
@@ -15,7 +15,7 @@ class Player {
   }
 
   getSpinValue() {
-
+    wheel.generateRandomeValue;
   }
 
   guessConsonant() {
