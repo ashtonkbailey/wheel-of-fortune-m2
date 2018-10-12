@@ -1,17 +1,20 @@
 let puzzle;
+let wheel;
 
 class Round {
 	constructor(currCategory, currWheel, currPlayer) {
-		this.currCategory;
-		this.currWheel;
-		this.currPlayer;
+		this.currCategory = currCategory;
+		this.currWheel = currWheel;
+		this.currPlayer = currPlayer;
 	}
 
 	startRound() {
 		puzzle = new Puzzle();
-		puzzle.getCategory();
+		wheel = new Wheel();
+
+		this.currCategory = puzzle.getCategory();
 		domUpdates.displayCategory();
-		// Wheel.newWheel();
+		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
 		//call reset player turn
 	}
 
