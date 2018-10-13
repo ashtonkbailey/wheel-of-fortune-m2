@@ -1,5 +1,5 @@
 class Player {
-  constructor(name, turn, score, grandTotal, playerSpinValue) {
+  constructor(name, score, grandTotal, playerSpinValue) {
     this.name = name;
     this.turn = false;
     this.score = score;
@@ -20,6 +20,7 @@ class Player {
   }
 
   guessConsonant() {
+
 
   }
   
