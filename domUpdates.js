@@ -19,9 +19,18 @@ const domUpdates = {
 	},
 
 	displaySpinValue() {
-		wheel.generateRandomValue();
-	}
-
+    let wheelValue = wheel.generateRandomValue();
+    if (typeof wheelValue === 'number' ) {
+    gamePrompt.innerHTML = `YOU LANDED ON <span>$${wheelValue}</span> now guess a consonant`;
+  } else if 
+  // need a function to change player turn
+    (wheelValue === 'LOSE A TURN') {
+      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> next player's turn`;
+    } else {
+// need a function to change player turn and player score
+      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> your score is reset and now it's next player's turn`;
+    }
+  }
 };
 
 
