@@ -1,4 +1,4 @@
-let round;
+ let round;
 
 class Game {
 	constructor(currentRound, players) {

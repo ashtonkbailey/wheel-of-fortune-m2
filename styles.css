@@ -11,13 +11,15 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
-/*.start-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: 137px;
-  margin-left: 340px;
-}*/
+.start-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+   
+    justify-content: center;
+}
 
 
 /*window to start game*/
@@ -27,13 +29,13 @@ body {
   width: 700px;
   height: 450px;
   font-size: 20px;
-  bottom: 137px;
-  right: 400px;
+ /* bottom: 137px;
+  right: 400px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  /*position: absolute;*/
   color: #FFF;
   border-radius: 10%;
 }
