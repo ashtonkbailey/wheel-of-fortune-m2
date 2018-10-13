@@ -323,6 +323,10 @@ button:hover {
   display: inline-block;
 }
 
+.change-opacity {
+  opacity: 0.1;
+}
+
 /*animations*/
 .animatePlayerName {
   color: purple;
