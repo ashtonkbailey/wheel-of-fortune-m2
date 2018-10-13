@@ -20,11 +20,12 @@ describe('Player', function() {
     expect(player.grandTotal).to.equal(15000);
   });
 
-  // it('should receieve a value from the wheel after spinning the wheel', function() {
-  //   var wheel = new Wheel;
-  //   var player = new Player('Daniel', 100, 5000, wheel.generateRandomValue());
-  //   expect(player.playerSpinValue).to.equal(wheel.generateRandomValue());
-  // })
+  it('should receieve a value from the wheel after spinning the wheel', function() {
+    var wheel = new Wheel;
+    var num = wheel.generateRandomValue()
+    var player = new Player('Daniel', 100, 5000, );
+    expect(player.playerSpinValue).to.equal(num);
+  })
 
 
 
