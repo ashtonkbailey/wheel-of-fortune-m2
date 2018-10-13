@@ -6,8 +6,7 @@ class Wheel {
   }
 
   generateRandomValue() {
-		console.log(this.currWheelValue);
-		this.currWheelValue = Math.floor(Math.random() * (this.valuesArray.length + 1));
+		this.currWheelValue = Math.floor(Math.random() * (this.valuesArray.length));
 		return this.currWheelValue = this.valuesArray[this.currWheelValue];
   }
 
