@@ -1,9 +1,10 @@
 class Player {
-  constructor(name, turn, score, grandTotal) {
+  constructor(name, turn, score, grandTotal, playerSpinValue) {
     this.name = name;
     this.turn = false;
     this.score = score;
     this.grandTotal = grandTotal;
+    this.playerSpinValue = playerSpinValue;
   }
 
   solvePuzzle() {
@@ -15,7 +16,7 @@ class Player {
   }
 
   getSpinValue() {
-    wheel.generateRandomeValue;
+
   }
 
   guessConsonant() {

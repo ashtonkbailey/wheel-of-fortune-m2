@@ -2,13 +2,13 @@ class Wheel {
   constructor(currWheelValue, valuesArray) {
     this.currWheelValue = currWheelValue;
     this.valuesArray = data.wheel;
-
+    this.generateRandomValue = this.generateRandomValue.bind(this)
   }
 
   generateRandomValue() {
+		console.log(this.currWheelValue);
 		this.currWheelValue = Math.floor(Math.random() * (this.valuesArray.length + 1));
-
-		return this.currWheelValue;
+		return this.currWheelValue = this.valuesArray[this.currWheelValue];
   }
 
   randomizeWheel(valuesArray) {

@@ -16,6 +16,10 @@ const domUpdates = {
 	displayCategory() {
 		let category = puzzle.currentPuzzle.category;
 		categoryDisplay.innerText = category;
+	},
+
+	displaySpinValue() {
+		wheel.generateRandomValue();
 	}
 
 };
