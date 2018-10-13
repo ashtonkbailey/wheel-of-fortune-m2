@@ -10,8 +10,13 @@ var playerThreeName = document.querySelector('.player-three-name');
 var currentRoundNumber = document.querySelector('h2');
 var gamePrompt = document.querySelector('.game-prompt');
 var spinBtn = document.querySelector('.spin-wheel-button');
+var letterBank = document.querySelector('.letter-bank');
+var letterB = document.querySelector('.b')
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 
 spinBtn.addEventListener('click', domUpdates.displaySpinValue);
+
+letterBank.addEventListener('click', domUpdates.disableLetter)
+
 

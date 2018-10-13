@@ -30,7 +30,15 @@ const domUpdates = {
 // need a function to change player turn and player score
       gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> your score is reset and now it's next player's turn`;
     }
+  },
+
+  disableLetter(event) {
+     console.log(event.target.classList)
+    if (event.target.classList.contains('letters')) { 
+    event.target.classList.add('change-opacity');
   }
+}
+
 };
 
 
