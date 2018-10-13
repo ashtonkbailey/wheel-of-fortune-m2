@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const Player = require('../Player.js');
 const Wheel = require('../Wheel.js');
-const data = require('../library.js');
+global.data = require('../library.js');
 
 describe('Player', function() {
 
@@ -23,7 +23,7 @@ describe('Player', function() {
   it('should receieve a value from the wheel after spinning the wheel', function() {
     var wheel = new Wheel;
     var num = wheel.generateRandomValue()
-    var player = new Player('Daniel', 100, 5000, );
+    var player = new Player('Daniel', 100, 5000);
     expect(player.playerSpinValue).to.equal(num);
   })
 

@@ -69,10 +69,16 @@ class Puzzle {
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
+
+		if (this.guessedLetters.length > 0) {
+			game.currPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
+		} else {
+			this.switchPlayer();
+		};
+
     return this.guessedLetters;
 	}
 
-	
 
 }
 

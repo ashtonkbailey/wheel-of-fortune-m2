@@ -8,6 +8,7 @@ class Game {
 			this.player2,
 			this.player3
 			];
+		this.currPlayer = this.players[0]
 	}
 
 	startGame() {
@@ -16,6 +17,14 @@ class Game {
 		this.player2 = new Player();
 		this.player3 = new Player();
 		round.startRound();
+	}
+
+	switchPlayer() {
+		if (this.currPlayer = this.players[0] || this.players[1]) {
+			this.currPlayer = this.players[i + 1];
+		} else {
+			this.currPlayer = this.players[0];
+		}
 	}
 
 

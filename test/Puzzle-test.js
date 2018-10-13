@@ -2,6 +2,7 @@ const { expect } = require('chai');
 const Puzzle = require('../Puzzle.js');
 const Game = require('../Game.js');
 const Wheel = require('../Wheel.js');
+const Round = require('../Round.js');
 
 describe('Puzzle', () => {
 
@@ -38,7 +39,7 @@ describe('Puzzle', () => {
 	});
 
 	it('should split answer into array', () => {
-		let game = new Game();
+		game = new Game();
     puzzle.currentPuzzle = {  
       category: 'Around The House',
       number_of_words: 1,
@@ -54,6 +55,7 @@ describe('Puzzle', () => {
 	});
 
 	it('should check guessed letter against answer array', () => {
+		let round = new Round();
     puzzle.currentPuzzle = {  
       category: 'Around The House',
       number_of_words: 1,
@@ -70,10 +72,6 @@ describe('Puzzle', () => {
    	expect(letterCheck).to.deep.equal(['M']);
 	});
 
-	it('', () => {
-
-
-	})
 
 
 })
