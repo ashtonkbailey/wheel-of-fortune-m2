@@ -23,6 +23,13 @@ class Player {
 
 
   }
+
+  updatePlayerScore(wheelValue, array) {
+    var total = wheelValue * array.length
+    return this.score = total;
+
+
+  }
   
 }
 
