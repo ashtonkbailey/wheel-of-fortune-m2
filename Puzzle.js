@@ -72,9 +72,24 @@ class Puzzle {
     return this.guessedLetters;
 	}
 
-	
+	checkGuessedVowel(letter) {
+		let guess = letter.toUpperCase();
+		this.guessedLetters = this.currAnswer.filter((currentIndex) => {
+			return currentIndex.includes(guess);
+		});
+	}
 
-}
+	checkSolvePuzzle(string) {
+		let string = string.toUpperCase();
+		 if (string === puzzle.currentPuzzle.correct_answer.toUpperCase) {
+		 	return true
+		 }
+
+		}
+
+	}
+
+	
 
 if (typeof module !== 'undefined') {
   module.exports = Puzzle;

@@ -12,6 +12,7 @@ class Player {
   }
 
   buyVowel() {
+    this.score = this.score - 100;
 
   }
 
@@ -27,8 +28,6 @@ class Player {
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
     return this.score = total;
-
-
   }
   
 }
