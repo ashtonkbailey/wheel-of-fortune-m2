@@ -78,7 +78,9 @@ class Puzzle {
 			game.players[round.currPlayer].updatePlayerScore(wheel.currWheelValue, this.guessedLetters)
 			console.log(game.players[round.currPlayer].score)
 			domUpdates.displayScore(game.players[round.currPlayer].score)
-		}
+			} else {
+		// 	round.switchPlayer()
+		// }
 	}
 
 	checkGuessedVowel(letter) {
