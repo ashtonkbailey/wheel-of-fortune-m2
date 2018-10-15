@@ -23,9 +23,9 @@ class Round {
 
 	switchPlayer() {
 		if (game.players[this.currentPlayer] + 1) {
-			currentPlayer++
+			this.currentPlayer++
 		} else {
-			currentPlayer = 0;
+			this.currentPlayer = 0;
 		}
 	}
 

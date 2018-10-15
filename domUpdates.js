@@ -44,7 +44,8 @@ const domUpdates = {
 },
 
   displayScore(score) {
-    if (game.players[round.currPlayer] === 0) {
+    console.log(game.players[round.currPlayer])
+    if (round.currPlayer === 0) {
       playerOneScore.innerText = score;
     }
 
