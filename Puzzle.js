@@ -3,6 +3,7 @@ class Puzzle {
 		this.guessedLetters = [];
 		this.currentPuzzle = null;
 		this.currAnswer = null;
+		this.solved = false;
 	}
 
 	displayLetter() {
@@ -77,17 +78,18 @@ class Puzzle {
 		this.guessedLetters = this.currAnswer.filter((currentIndex) => {
 			return currentIndex.includes(guess);
 		});
+		return this.guessedLetters;
 	}
 
 	checkSolvePuzzle(string) {
-		let string = string.toUpperCase();
-		 if (string === puzzle.currentPuzzle.correct_answer.toUpperCase) {
-		 	return true
-		 }
+		let upperCaseString = string.toUpperCase();
+		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
+		 if (upperCaseString === upperCaseAnswer) {
+			this.solved = true;	
 
 		}
-
 	}
+}
 
 	
 

@@ -86,13 +86,14 @@ describe('Puzzle', () => {
       correct_answer: 'Armchair',
     };
 
+    puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
     let guessedVowel= 'a';
     let letterCheck = puzzle.checkGuessedVowel(guessedVowel);
     expect(letterCheck).to.deep.equal(['A', 'A']);
 
   });
 
-  it('should check guessed phrase against correct answer'), () => {
+  it('should check guessed phrase against correct answer', () => {
     puzzle.currentPuzzle = {  
       category: 'Around The House',
       number_of_words: 1,
@@ -103,11 +104,9 @@ describe('Puzzle', () => {
     };
 
     let guessedPhrase = 'armchair'
-    checkSolvePuzzle(guessedPhrase);
-    expect(guessedPhrase).to.equal(true)
-
-
-  }
+    let result = puzzle.checkSolvePuzzle(guessedPhrase);
+    expect(puzzle.solved).to.equal(true);
+  })
 
 
 })

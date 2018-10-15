@@ -21,6 +21,8 @@ spinBtn.addEventListener('click', domUpdates.displaySpinValue);
 
 letterBank.addEventListener('click', domUpdates.disableLetter)
 
+vowels.addEventListener('click', domUpdates.disableLetter)
+
 buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel)
 
 

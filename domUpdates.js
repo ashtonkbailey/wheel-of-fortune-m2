@@ -41,7 +41,6 @@ const domUpdates = {
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
-    domUpdates.disableLetter(event);
 }
 
 };
