@@ -16,12 +16,13 @@ class Round {
 		domUpdates.displayCategory();
 		console.log(wheel.valuesArray)
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
+		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
 		console.log(wheel.valuesArray)
 		//call reset player turn
 	}
 
 	switchPlayer() {
-		if (gamne.players[this.currentPlayer] + 1) {
+		if (game.players[this.currentPlayer] + 1) {
 			currentPlayer++
 		} else {
 			currentPlayer = 0;

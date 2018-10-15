@@ -36,12 +36,25 @@ const domUpdates = {
      console.log(event.target.classList)
     if (event.target.classList.contains('letters')) { 
     event.target.classList.add('change-opacity');
+    let letter = event.target.innerHTML
+    puzzle.checkGuessedLetter(letter);
+    puzzle.checkGuessedLettersArray();
+
   }
 },
+
+  displayScore(score) {
+    if (game.players[round.currPlayer] === 0) {
+      playerOneScore.innerText = score;
+    }
+
+  },
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
 }
+
+
 
 };
 

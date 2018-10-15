@@ -14,6 +14,7 @@ var letterBank = document.querySelector('.letter-bank');
 var letterB = document.querySelector('.b')
 var buyVowelButton = document.querySelector('.buy-vowel-button');
 var vowels = document.querySelector('.vowels');
+var playerOneScore = document.querySelector('.player-one-score');
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 
