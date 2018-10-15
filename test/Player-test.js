@@ -23,14 +23,14 @@ describe('Player', function() {
     expect(player.grandTotal).to.equal(15000);
   });
 
-  it.skip('should receieve a value from the wheel after spinning the wheel', function() {
+  it.skip('should receieve a value from the wheel after spin', () => {
     var wheel = new Wheel;
     var num = wheel.generateRandomValue()
     var player = new Player('Daniel', 100, 5000);
     expect(player.playerSpinValue).to.equal(num);
   })
 
-  it.skip('should update the player\'s score based on the length of the guessedlettersArray', () => {
+  it('should update score based on the length of the lettersArray', () => {
     var wheel = new Wheel();
     var puzzle = new Puzzle();
     var player = new Player;
