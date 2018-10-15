@@ -37,6 +37,11 @@ const domUpdates = {
     if (event.target.classList.contains('letters')) { 
     event.target.classList.add('change-opacity');
   }
+},
+
+  displayBuyVowel() {
+    vowels.classList.add('showVowels');
+    domUpdates.disableLetter(event);
 }
 
 };

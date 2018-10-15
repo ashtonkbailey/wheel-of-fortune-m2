@@ -5,6 +5,7 @@ class Round {
 	constructor(currCategory, currWheel, currPlayer) {
 		this.currCategory = currCategory;
 		this.currWheel = currWheel;
+		this.currPlayer = 0;
 	}
 
 	startRound() {
@@ -17,6 +18,14 @@ class Round {
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
 		console.log(wheel.valuesArray)
 		//call reset player turn
+	}
+
+	switchPlayer() {
+		if (gamne.players[this.currentPlayer] + 1) {
+			currentPlayer++
+		} else {
+			currentPlayer = 0;
+		}
 	}
 
 	updateGrandTotal(){

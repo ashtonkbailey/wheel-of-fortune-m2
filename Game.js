@@ -1,21 +1,17 @@
  let round;
 
 class Game {
-	constructor(currentRound, players) {
+	constructor(currentRound) {
 		this.currentRound = 1;
-		this.players = [
-			this.player1,
-			this.player2,
-			this.player3
-			];
+		this.players = [];
 		this.currPlayer = this.players[0]
 	}
 
 	startGame() {
 		round = new Round();
-		this.player1 = new Player();
-		this.player2 = new Player();
-		this.player3 = new Player();
+		this.players.push(new Player())
+		this.players.push(new Player())
+		this.players.push(new Player())
 		round.startRound();
 	}
 
@@ -26,9 +22,8 @@ class Game {
 			this.currPlayer = this.players[0];
 		}
 	}
-
-
 }
+
 
 if (typeof module !== 'undefined') {
   module.exports = Game;
