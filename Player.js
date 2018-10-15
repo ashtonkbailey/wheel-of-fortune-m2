@@ -2,7 +2,7 @@ class Player {
   constructor(name, score, grandTotal, playerSpinValue) {
     this.name = name;
     this.turn = false;
-    this.score = score;
+    this.score = 0;
     this.grandTotal = grandTotal;
     this.playerSpinValue = playerSpinValue;
   }
@@ -27,8 +27,8 @@ class Player {
 
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
-    
-    return this.score = total;
+
+    return this.score += total;
   }
   
 }
