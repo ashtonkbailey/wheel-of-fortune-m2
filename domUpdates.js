@@ -1,6 +1,5 @@
 let game;
 
-
 const domUpdates = {
   hideStartMenu() {
     startContainer.classList.add('hide');
@@ -10,7 +9,6 @@ const domUpdates = {
     game.startGame();
     updatePlayerNames();
     addAnimation();
-
   },
 
   displayCategory() {
@@ -21,56 +19,60 @@ const domUpdates = {
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
     if (typeof wheelValue === 'number' ) {
-    gamePrompt.innerHTML = `YOU LANDED ON <span>$${wheelValue}</span> now guess a consonant`;
-  } else if 
-  // need a function to change player turn
-    (wheelValue === 'LOSE A TURN') {
-      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> next player's turn`;
+      gamePrompt.innerHTML = 
+        `YOU LANDED ON 
+        <span>$${wheelValue}</span>
+        now guess a consonant`;
+    } else if (wheelValue === 'LOSE A TURN') { 
+      // need a function to change player turn
+      gamePrompt.innerHTML = 
+        `YOU LANDED ON 
+        <span>${wheelValue}</span>
+         next player's turn`;
     } else {
-// need a function to change player turn and player score
-      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> your score is reset and now it's next player's turn`;
+      // need a function to change player turn and player score
+      gamePrompt.innerHTML = 
+       `YOU LANDED ON 
+        <span>${wheelValue}</span>
+         your score is reset and now it's next player's turn`;
     }
   },
 
   disableLetter(event) {
-     console.log(event.target.classList)
     if (event.target.classList.contains('letters')) { 
-    event.target.classList.add('change-opacity');
-    let letter = event.target.innerHTML
-    puzzle.checkGuessedLetter(letter);
-    puzzle.checkGuessedLettersArray();
-
-  }
-},
+      event.target.classList.add('change-opacity');
+      let letter = event.target.innerHTML
+      puzzle.checkGuessedLetter(letter);
+      puzzle.checkGuessedLettersArray();
+    }
+  },
 
   displayScore(score) {
     if (game.players[round.currPlayer] === 0) {
       playerOneScore.innerText = score;
     }
-
   },
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
-}
+    domUpdates.disableLetter(event);
+  }
 
 
 
 };
-
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
-  playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";;
-};
-
+  playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
+}
 
 function addAnimation() {
   playerOneName.classList.add('animatePlayerName');
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
-};
+}
 
 
 
