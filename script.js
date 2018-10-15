@@ -12,11 +12,15 @@ var gamePrompt = document.querySelector('.game-prompt');
 var spinBtn = document.querySelector('.spin-wheel-button');
 var letterBank = document.querySelector('.letter-bank');
 var letterB = document.querySelector('.b')
+var buyVowelButton = document.querySelector('.buy-vowel-button');
+var vowels = document.querySelector('.vowels');
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 
 spinBtn.addEventListener('click', domUpdates.displaySpinValue);
 
 letterBank.addEventListener('click', domUpdates.disableLetter)
+
+buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel)
 
 
