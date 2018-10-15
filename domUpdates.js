@@ -57,8 +57,25 @@ const domUpdates = {
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
-}
+  },
 
+  displayIncorrectGuess() {
+    gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
+  },
+
+  changePlayerAnimation(player) {
+    if (player === 1) {
+      let playerNum = playerTwoName;
+      addAnimation(playerNum)
+    } else if (player === 2) {
+      playerNum === playerThreeName;
+      addAnimation(playerNum)
+    } else {
+      playerNum == playerOneName;
+      addAnimation(playerNum)
+    }
+
+   }
 
 
 };
@@ -67,12 +84,12 @@ const domUpdates = {
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
-  playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";;
+  playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
 };
 
 
-function addAnimation() {
-  playerOneName.classList.add('animatePlayerName');
+function addAnimation(playerNum) {
+  playerNum.classList.add('animatePlayerName');
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
 };

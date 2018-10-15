@@ -22,10 +22,10 @@ class Round {
 	}
 
 	switchPlayer() {
-		if (game.players[this.currentPlayer] + 1) {
-			this.currentPlayer++
+		if (game.players[this.currPlayer + 1]) {
+			this.currPlayer++
 		} else {
-			this.currentPlayer = 0;
+			this.currPlayer = 0;
 		}
 	}
 

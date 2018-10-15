@@ -79,8 +79,12 @@ class Puzzle {
 			console.log(game.players[round.currPlayer].score)
 			domUpdates.displayScore(game.players[round.currPlayer].score)
 			} else {
-		// 	round.switchPlayer()
-		// }
+			round.switchPlayer();
+			domUpdates.displayIncorrectGuess();
+			console.log(round.currPlayer);
+			domUpdates.changePlayerAnimation(round.currPlayer)
+	
+		}
 	}
 
 	checkGuessedVowel(letter) {
