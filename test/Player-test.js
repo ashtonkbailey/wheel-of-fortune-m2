@@ -39,7 +39,16 @@ describe('Player', function() {
     expect(player.score).to.equal(400);
   });
 
+  it('should update player\'s score after buying a vowel', () => {
+    var player = new Player('John', 600, 15000)
+    player.buyVowel();
+    expect(player.score).to.equal(500);
 
+  });
 
 
 });
+
+if (typeof module !== 'undefined') {
+  module.exports = Player;
+}
