@@ -80,6 +80,14 @@ class Puzzle {
     return this.guessedLetters;
 	}
 
+	checkGuessedLettersArray() {
+		if (this.guessedLetters.length > 0) {
+			game.players[round.currPlayer].updatePlayerScore(wheel.currWheelValue, this.guessedLetters)
+			console.log(game.players[round.currPlayer].score)
+			domUpdates.displayScore(game.players[round.currPlayer].score)
+		}
+	}
+
 	checkGuessedVowel(letter) {
 		let guess = letter.toUpperCase();
 		this.guessedLetters = this.currAnswer.filter((currentIndex) => {

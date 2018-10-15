@@ -41,6 +41,15 @@ const domUpdates = {
   disableLetter(event) {
     if (event.target.classList.contains('letters')) { 
       event.target.classList.add('change-opacity');
+      let letter = event.target.innerHTML
+      puzzle.checkGuessedLetter(letter);
+      puzzle.checkGuessedLettersArray();
+    }
+  },
+
+  displayScore(score) {
+    if (game.players[round.currPlayer] === 0) {
+      playerOneScore.innerText = score;
     }
   },
 
@@ -48,6 +57,8 @@ const domUpdates = {
     vowels.classList.add('showVowels');
     domUpdates.disableLetter(event);
   }
+
+
 
 };
 
