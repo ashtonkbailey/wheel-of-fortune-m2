@@ -4,6 +4,7 @@ const Game = require('../Game.js');
 const Wheel = require('../Wheel.js');
 const Round = require('../Round.js');
 
+
 describe('Puzzle', () => {
 
 	let puzzle;
@@ -72,6 +73,39 @@ describe('Puzzle', () => {
    	expect(letterCheck).to.deep.equal(['M']);
 	});
 
+
+  it('should check guessed vowel against answer array', () => {
+    puzzle.currentPuzzle = {  
+      category: 'Around The House',
+      number_of_words: 1,
+      total_number_of_letters: 8,
+      first_word: 8, 
+      description:'Location or object(s) found within a typical house.',
+      correct_answer: 'Armchair',
+    };
+
+    let guessedVowel= 'a';
+    let letterCheck = puzzle.checkGuessedVowel(guessedVowel);
+    expect(letterCheck).to.deep.equal(['A', 'A']);
+
+  });
+
+  it('should check guessed phrase against correct answer'), () => {
+    puzzle.currentPuzzle = {  
+      category: 'Around The House',
+      number_of_words: 1,
+      total_number_of_letters: 8,
+      first_word: 8, 
+      description:'Location or object(s) found within a typical house.',
+      correct_answer: 'Armchair',
+    };
+
+    let guessedPhrase = 'armchair'
+    checkSolvePuzzle(guessedPhrase);
+    expect(guessedPhrase).to.equal(true)
+
+
+  }
 
 
 })
