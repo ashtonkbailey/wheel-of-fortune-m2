@@ -10,6 +10,8 @@ const domUpdates = {
     game.startGame();
     updatePlayerNames();
     addAnimation();
+    console.log(puzzle.currentPuzzle.correct_answer);
+    showBoard();
 
   },
 
@@ -63,22 +65,29 @@ const domUpdates = {
     gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
   },
 
-  changePlayerAnimation(player) {
-    if (player === 1) {
-      let playerNum = playerTwoName;
-      addAnimation(playerNum)
-    } else if (player === 2) {
-      playerNum === playerThreeName;
-      addAnimation(playerNum)
-    } else {
-      playerNum == playerOneName;
-      addAnimation(playerNum)
-    }
-
-   }
+  displayGuessedLetter() {
+    
+  }
 
 
-};
+  }
+
+  // changePlayerAnimation(player) {
+  //   if (player === 1) {
+  //     let playerNum = playerTwoName;
+  //     addAnimation(playerNum)
+  //   } else if (player === 2) {
+  //     playerNum === playerThreeName;
+  //     addAnimation(playerNum)
+  //   } else {
+  //     playerNum == playerOneName;
+  //     addAnimation(playerNum)
+  //   }
+
+  //  }
+
+
+// };
 
 
 function updatePlayerNames() {
@@ -88,11 +97,23 @@ function updatePlayerNames() {
 };
 
 
-function addAnimation(playerNum) {
-  playerNum.classList.add('animatePlayerName');
+function addAnimation() {
+  playerOneName.classList.add('animatePlayerName');
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
 };
+
+function showBoard() {
+  var boxes = document.querySelectorAll('.box');
+    for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
+      console.log(boxes[i]);
+      if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
+        boxes[i].classList.add('addWhite');
+      }
+      
+    }
+  }
+
 
 
 

@@ -7,7 +7,6 @@ class Puzzle {
 	}
 
 	displayLetter() {
-		//if guessed letter matches answer, show letter
 	}
 
 	changeLetters() {
