@@ -1,33 +1,22 @@
 class Player {
-  constructor(name, score, grandTotal, playerSpinValue) {
-    this.name = name;
-    this.turn = false;
+  constructor(score, grandTotal, turn) {
     this.score = 0;
     this.grandTotal = 0;
-    this.playerSpinValue = playerSpinValue;
-  }
-
-  solvePuzzle() {
-
+    this.turn = false;
   }
 
   buyVowel() {
     this.score = this.score - 100;
-
-  }
-
-  getSpinValue() {
-
-  }
-
-  guessConsonant() {
-
-
   }
 
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
-    return this.score += total;
+    this.score = this.score += total;
+  }
+
+  updateGrandTotal() {
+    this.grandTotal = this.grandTotal += this.score;
+    domUpdates.displayGrandTotal(game.players[round.currPlayer].grandTotal);
   }
   
 }

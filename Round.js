@@ -13,34 +13,32 @@ class Round {
 
 		puzzle.getCategory();
 		domUpdates.displayCategory();
+
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
 		console.log('3-randomizeWheel', this.currWheel)
 		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
 		console.log('4-splitanswer', puzzle.currAnswer)
-		//call reset player turn
 	}
 
 	switchPlayer() {
-		console.log('switchPlayer1', this.currPlayer)
-		if (game.players[this.currPlayer] + 1) {
+		if (game.players[this.currPlayer + 1]) {
 			this.currPlayer++;
-			console.log('switchPlayer2', this.currPlayer);
 		} else {
 			this.currPlayer = 0;
 		}
 	}
 
-	updateGrandTotal(){
-		//add winner's score to total
-	}
-
-	resetPlayerTurn(){
-		//start at player one again
-		//call reset player score
+	resetRound() {
+		game.currentRound++;
+		this.resetPlayerScore();
+		domUpdates.resetScoreDisplay();
+		round = new Round();
 	}
 
 	resetPlayerScore() {
-		//put round score back to zero
+		game.players.forEach(player => {
+			player.score = 0;
+		});
 	}
 
 }
