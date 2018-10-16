@@ -284,7 +284,8 @@ and player prompting*/
       3px 3px 8px #000, 
       -1px -1px 0 #000, 
       -1px 2px 2px #000, 
-      2px 2px 2px #000
+      2px 2px 2px #000;
+  cursor: pointer;
 }
 
 .letters:hover {

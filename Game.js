@@ -20,8 +20,15 @@ class Game {
     this.currentRound++;
     round.resetPlayerScore();
     domUpdates.resetScoreDisplay();
+    domUpdates.removeBoard();
+    domUpdates.resetLetters();
     round = new Round();
     round.startRound();
+    showBoard();
+    changePlayerAnimation(round.currPlayer)
+    round = new Round();
+    round.startRound();
+
   }
 
 

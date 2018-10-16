@@ -29,14 +29,12 @@ class Round {
 	switchPlayer() {
 		if (game.players[this.currPlayer + 1]) {
 			this.currPlayer++;
-			changePlayerAnimation(round.currPlayer)
+			changePlayerAnimation(round.currPlayer);
 			console.log('switchPlayer2', this.currPlayer);
 		} else {
 			this.currPlayer = 0;
 		}
 	}
-
-
 
 	resetPlayerScore() {
 		game.players.forEach(player => {
