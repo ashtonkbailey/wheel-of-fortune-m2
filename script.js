@@ -17,6 +17,7 @@ var vowels = document.querySelector('.vowels');
 var playerOneScore = document.querySelector('.player-one-score');
 var playerTwoScore = document.querySelector('.player-two-score');
 var playerThreeScore = document.querySelector('.player-three-score');
+// var boxes = document.querySelector('.box');
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 

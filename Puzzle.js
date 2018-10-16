@@ -7,7 +7,6 @@ class Puzzle {
 	}
 
 	displayLetter() {
-		//if guessed letter matches answer, show letter
 	}
 
 	changeLetters() {
@@ -85,9 +84,14 @@ class Puzzle {
 			game.players[round.currPlayer].updatePlayerScore(wheel.currWheelValue, this.guessedLetters)
 			console.log(game.players[round.currPlayer].score)
 			domUpdates.displayScore(game.players[round.currPlayer].score)
+			domUpdates.displayGuessedLetter(event)
 			} else {
-		// 	round.switchPlayer()
-		// }
+			round.switchPlayer();
+			domUpdates.displayIncorrectGuess();
+			console.log(round.currPlayer);
+			// domUpdates.changePlayerAnimation(round.currPlayer)
+	
+		}
 	}
 
 	checkGuessedVowel(letter) {
