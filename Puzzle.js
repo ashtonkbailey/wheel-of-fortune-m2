@@ -69,7 +69,6 @@ class Puzzle {
 		} else {
 			round.switchPlayer();
 			changePlayerAnimation(round.currPlayer)
-			domUpdates.displayIncorrectGuess();
 			domUpdates.changePlayerPrompt();
 		};
 	}

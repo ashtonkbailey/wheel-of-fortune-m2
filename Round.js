@@ -20,6 +20,12 @@ class Round {
 		console.log('4-splitanswer', puzzle.currAnswer)
 	}
 
+	bankruptPlayer() {
+		game.players[round.currPlayer].score = 0;
+		domUpdates.displayScore(0)
+		this.switchPlayer();
+	}
+
 	switchPlayer() {
 		if (game.players[this.currPlayer + 1]) {
 			this.currPlayer++;
