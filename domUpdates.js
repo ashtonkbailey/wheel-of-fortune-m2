@@ -51,6 +51,10 @@ const domUpdates = {
     console.log(game.players[round.currPlayer])
     if (round.currPlayer === 0) {
       playerOneScore.innerText = score;
+    } else if (round.currPlayer === 1) {
+      playerTwoScore.innerText = score;
+    } else {
+      playerThreeScore.innerText = score;
     }
   },
 
