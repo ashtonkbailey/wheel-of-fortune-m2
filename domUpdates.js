@@ -1,6 +1,5 @@
 let game;
 
-
 const domUpdates = {
   hideStartMenu() {
     startContainer.classList.add('hide');
@@ -8,6 +7,7 @@ const domUpdates = {
 
     game = new Game;
     game.startGame();
+
     updatePlayerNames();
     addAnimation();
     console.log(puzzle.currentPuzzle.correct_answer);
@@ -22,44 +22,72 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
+    console.log('5-generateRandomvalue', wheelValue);
     if (typeof wheelValue === 'number' ) {
-    gamePrompt.innerHTML = `YOU LANDED ON <span>$${wheelValue}</span> now guess a consonant`;
-  } else if 
-  // need a function to change player turn
-    (wheelValue === 'LOSE A TURN') {
-      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> next player's turn`;
+      gamePrompt.innerHTML = 
+        `YOU LANDED ON 
+        <span>$${wheelValue}</span>
+        now guess a consonant`;
+    } else if (wheelValue === 'LOSE A TURN') { 
+      // need a function to change player turn
+      gamePrompt.innerHTML = 
+        `YOU LANDED ON 
+        <span>${wheelValue}</span>
+         next player's turn`;
+      round.switchPlayer();
     } else {
-// need a function to change player turn and player score
-      gamePrompt.innerHTML = `YOU LANDED ON <span>${wheelValue}</span> your score is reset and now it's next player's turn`;
-    }
+      // need a function to change player turn and player score
+      gamePrompt.innerHTML = 
+        `YOU LANDED ON 
+        <span>${wheelValue}</span>
+         your score is reset and now it's next player's turn`;
+      round.switchPlayer();
+    };
+  },
+
+  changePlayerPrompt(lettersArray) {
+    if (puzzle.guessedLetters.length > 0) {
+      gamePrompt.innerHTML = 
+        `NICE WORK! SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE`;
+    } else {
+      gamePrompt.innerHTML =
+        `NOPE, NEXT PLAYER...`;
+    };
+  },
+
+  solvePuzzleFail() {
+    gamePrompt.innerHTML = 
+      `NOPE, WRONG ANSWER!
+       NEXT PLAYER...`;
   },
 
   disableLetter(event) {
-     console.log(event.target.classList)
     if (event.target.classList.contains('letters')) { 
-    event.target.classList.add('change-opacity');
-    let letter = event.target.innerHTML
+      event.target.classList.add('change-opacity');
+    }
+    let letter = event.target.innerHTML;
+    console.log('buyvowel2', 'disableletter', letter)
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
-
-  }
-},
+  },
 
   displayScore(score) {
     console.log(game.players[round.currPlayer])
     if (round.currPlayer === 0) {
-      playerOneScore.innerText = score;
+      playerOneScore.innerText = `$${score}`;
     } else if (round.currPlayer === 1) {
-      playerTwoScore.innerText = score;
+      playerTwoScore.innerText = `$${score}`;
     } else {
-      playerThreeScore.innerText = score;
+      playerThreeScore.innerText = `$${score}`;
     }
-
   },
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
     player.buyVowel()
+    console.log('buyvowel1', 'displayvowels')
+
   },
 
   displayIncorrectGuess() {
@@ -76,12 +104,18 @@ const domUpdates = {
 
       }
     })
+  },
+
+  displaySolvePuzzle() {
+    solvePuzzle.classList.add('show-solve-puzzle-container');
+  },
+
+
+  hideSolvePuzzle() {
+    solvePuzzle.classList.remove('show-solve-puzzle-container');
+    let playerGuess = document.querySelector('.solve-puzzle-input').value;
+    puzzle.checkSolvePuzzle(playerGuess)
   }
-
-
-}
-
-
 
   // changePlayerAnimation(player) {
   //   if (player === 1) {
@@ -98,8 +132,8 @@ const domUpdates = {
   //  }
 
 
-// };
 
+// };
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
@@ -108,11 +142,12 @@ function updatePlayerNames() {
 };
 
 
+
 function addAnimation() {
   playerOneName.classList.add('animatePlayerName');
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
-};
+}
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');

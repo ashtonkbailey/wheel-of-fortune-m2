@@ -6,21 +6,6 @@ class Puzzle {
 		this.solved = false;
 	}
 
-	displayLetter() {
-	}
-
-	changeLetters() {
-		//changes letter based on guess or buy on alphabet display
-	}
-
-	resetLetters() {
-		//changes alphabet back to original state
-	}
-
-	displayAnswer() {
-		//if puzzle is solved correctly, show answer
-	}
-
 	generateRandomNumber(puzzleBankLength) {
 		return Math.floor(Math.random() * (puzzleBankLength));
 	}
@@ -32,7 +17,7 @@ class Puzzle {
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 
 			this.currentPuzzle = randomPuzzle;
-			console.log(this.currentPuzzle)
+			console.log('2-getcategory', this.currentPuzzle)
 
 		} else if (game.currentRound = 2) {
 			let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
@@ -66,25 +51,28 @@ class Puzzle {
 
 	checkGuessedLetter(letter) {
 		let guess = letter.toUpperCase();
+
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
+		console.log('buyvowel3', this.guessedLetters)
+
     return this.guessedLetters;
 	}
 
 	checkGuessedLettersArray() {
+		console.log('buyvowel4, currentplayerlog', game.players[round.currPlayer])
+		let currentPlayer = game.players[round.currPlayer];
+
 		if (this.guessedLetters.length > 0) {
-			game.players[round.currPlayer].updatePlayerScore(wheel.currWheelValue, this.guessedLetters)
-			console.log(game.players[round.currPlayer].score)
-			domUpdates.displayScore(game.players[round.currPlayer].score)
-			domUpdates.displayGuessedLetter(event)
-			} else {
+			currentPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
+			console.log(currentPlayer.score);
+			domUpdates.displayScore(currentPlayer.score);
+			domUpdates.changePlayerPrompt();
+		} else {
 			round.switchPlayer();
-			domUpdates.displayIncorrectGuess();
-			console.log(round.currPlayer);
-			// domUpdates.changePlayerAnimation(round.currPlayer)
-	
-		}
+			domUpdates.changePlayerPrompt();
+		};
 	}
 
 	checkGuessedVowel(letter) {
@@ -95,12 +83,19 @@ class Puzzle {
 		return this.guessedLetters;
 	}
 
-	checkSolvePuzzle(string) {
-		let upperCaseString = string.toUpperCase();
-		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
-		 if (upperCaseString === upperCaseAnswer) {
-			this.solved = true;	
 
+	checkSolvePuzzle(guess) {
+		let upperCaseGuess = guess.toUpperCase();
+		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
+		
+		if (upperCaseGuess === upperCaseAnswer) {
+			this.solved = true;	
+			//display answer on puzzle
+			//update grand total
+			//finish round
+		} else {
+			domUpdates.solvePuzzleFail();
+			round.switchPlayer();
 		}
 	}
 }

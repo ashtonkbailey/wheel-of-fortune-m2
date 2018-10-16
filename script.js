@@ -17,16 +17,24 @@ var vowels = document.querySelector('.vowels');
 var playerOneScore = document.querySelector('.player-one-score');
 var playerTwoScore = document.querySelector('.player-two-score');
 var playerThreeScore = document.querySelector('.player-three-score');
+var solvePuzzleButton = document.querySelector('.solve-puzzle-button');
+var solvePuzzle = document.querySelector('.solve-puzzle-container');
+var guessPuzzleButton = document.querySelector('.solve-guess-button')
 // var boxes = document.querySelector('.box');
+
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 
 spinBtn.addEventListener('click', domUpdates.displaySpinValue);
 
-letterBank.addEventListener('click', domUpdates.disableLetter)
+letterBank.addEventListener('click', domUpdates.disableLetter);
 
-vowels.addEventListener('click', domUpdates.disableLetter)
+vowels.addEventListener('click', domUpdates.disableLetter);
 
-buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel)
+buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel);
+
+solvePuzzleButton.addEventListener('click', domUpdates.displaySolvePuzzle);
+
+guessPuzzleButton.addEventListener('click', domUpdates.hideSolvePuzzle)
 
 

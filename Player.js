@@ -3,7 +3,7 @@ class Player {
     this.name = name;
     this.turn = false;
     this.score = 0;
-    this.grandTotal = grandTotal;
+    this.grandTotal = 0;
     this.playerSpinValue = playerSpinValue;
   }
 
@@ -27,7 +27,6 @@ class Player {
 
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
-
     return this.score += total;
   }
   
