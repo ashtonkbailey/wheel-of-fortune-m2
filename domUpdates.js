@@ -131,7 +131,7 @@ const domUpdates = {
 
 
 
-// };
+};
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
@@ -154,7 +154,6 @@ function showBoard() {
       if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
         boxes[i].classList.add('addWhite');
       }
-      
     }
   }
 

@@ -69,8 +69,10 @@ class Puzzle {
 			console.log(currentPlayer.score);
 			domUpdates.displayScore(currentPlayer.score);
 			domUpdates.changePlayerPrompt();
+			domUpdates.displayGuessedLetter(event);
 		} else {
 			round.switchPlayer();
+			domUpdates.displayIncorrectGuess();
 			domUpdates.changePlayerPrompt();
 		};
 	}
