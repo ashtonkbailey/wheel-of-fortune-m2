@@ -65,12 +65,22 @@ const domUpdates = {
     gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
   },
 
-  displayGuessedLetter() {
+  displayGuessedLetter(event) {
+    let guessedLetter = event.target.id;
+    let boxes = document.querySelectorAll('.box')
+    let splitArray = puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    splitArray.forEach((letter, i) => {
+      if (guessedLetter === letter) {
+    boxes[i].innerText = letter
     
+      }
+    })
   }
 
 
-  }
+}
+
+
 
   // changePlayerAnimation(player) {
   //   if (player === 1) {

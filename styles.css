@@ -291,6 +291,12 @@ and player prompting*/
   color: purple;
 }
 
+.box {
+  font-size: 80px;
+  color: black;
+  text-align: center;
+}
+
 .game-button {
   margin-right: 5px;
   font-size: 15px;
@@ -317,6 +323,8 @@ button:hover {
        -1px 2px 2px #000, 
        2px 2px 2px #000
 }
+
+/*adding and hiding classes*/
 
 .hide {
   display: none;
@@ -349,7 +357,6 @@ button:hover {
   background-color: white;
   background-image: none;
 }
-
 
 
 /*animations*/
