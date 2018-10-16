@@ -4,12 +4,15 @@ const domUpdates = {
   hideStartMenu() {
     startContainer.classList.add('hide');
     gamePrompt.classList.add('show');
+    currentRoundNumber.classList.add('animateRoundNumber');
+    categoryDisplay.classList.add('animateCategorydisplay');
+    playerOneName.classList.add('animatePlayerName');
 
     game = new Game;
     game.startGame();
 
     updatePlayerNames();
-    addAnimation();
+    // addAnimation();
     console.log(puzzle.currentPuzzle.correct_answer);
     showBoard();
 
@@ -85,7 +88,7 @@ const domUpdates = {
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
-    player.buyVowel()
+    // player.buyVowel()
     console.log('buyvowel1', 'displayvowels')
 
   },
@@ -115,25 +118,30 @@ const domUpdates = {
     solvePuzzle.classList.remove('show-solve-puzzle-container');
     let playerGuess = document.querySelector('.solve-puzzle-input').value;
     puzzle.checkSolvePuzzle(playerGuess)
+  },
+
+  
+};
+
+function changePlayerAnimation(currentPlayer) {
+    if (currentPlayer === 1) {
+      playerOneName.classList.remove('animatePlayerName');
+      playerThreeName.classList.remove('animatePlayerName');
+      let playerNum = playerTwoName;
+      addNameAnimation(playerNum)
+    } else if (currentPlayer === 2) {
+      playerOneName.classList.remove('animatePlayerName');
+      playerTwoName.classList.remove('animatePlayerName');
+      let playerNum = playerThreeName;
+      addNameAnimation(playerNum)
+    } else {
+      playerTwoName.classList.remove('animatePlayerName');
+      playerThreeName.classList.remove('animatePlayerName');
+      let playerNum = playerOneName;
+      addNameAnimation(playerNum)
+    }
   }
 
-  // changePlayerAnimation(player) {
-  //   if (player === 1) {
-  //     let playerNum = playerTwoName;
-  //     addAnimation(playerNum)
-  //   } else if (player === 2) {
-  //     playerNum === playerThreeName;
-  //     addAnimation(playerNum)
-  //   } else {
-  //     playerNum == playerOneName;
-  //     addAnimation(playerNum)
-  //   }
-
-  //  }
-
-
-
-};
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
@@ -143,11 +151,10 @@ function updatePlayerNames() {
 
 
 
-function addAnimation() {
-  playerOneName.classList.add('animatePlayerName');
-  currentRoundNumber.classList.add('animateRoundNumber');
-  categoryDisplay.classList.add('animateCategorydisplay')
+function addNameAnimation(playerNum) {
+  playerNum.classList.add('animatePlayerName');
 }
+
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
