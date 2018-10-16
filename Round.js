@@ -14,10 +14,8 @@ class Round {
 
 		this.currCategory = puzzle.getCategory();
 		domUpdates.displayCategory();
-		console.log(wheel.valuesArray)
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
 		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
-		console.log(wheel.valuesArray)
 		//call reset player turn
 	}
 
