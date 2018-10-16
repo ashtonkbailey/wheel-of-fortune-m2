@@ -12,7 +12,9 @@ class Player {
   }
 
   buyVowel() {
+    console.log('SUBTRACT 100')
     this.score = this.score - 100;
+    console.log(this.score)
 
   }
 
@@ -27,7 +29,7 @@ class Player {
 
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
-    return this.score += total;
+    this.score = this.score += total;
   }
   
 }

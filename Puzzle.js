@@ -51,12 +51,10 @@ class Puzzle {
 
 	checkGuessedLetter(letter) {
 		let guess = letter.toUpperCase();
-
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
 		console.log('buyvowel3', this.guessedLetters)
-
     return this.guessedLetters;
 	}
 
@@ -67,7 +65,7 @@ class Puzzle {
 		if (this.guessedLetters.length > 0) {
 			currentPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
 			console.log(currentPlayer.score);
-			domUpdates.displayScore(currentPlayer.score);
+			displayScore(currentPlayer.score);
 			domUpdates.changePlayerPrompt();
 			domUpdates.displayGuessedLetter(event);
 		} else {

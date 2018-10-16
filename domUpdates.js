@@ -65,8 +65,8 @@ const domUpdates = {
        NEXT PLAYER...`;
   },
 
-  disableLetter(event) {
-    if (event.target.classList.contains('letters')) { 
+  disableConsonant(event) {
+    if (event.target.classList.contains('consonant')) { 
       event.target.classList.add('change-opacity');
     }
     let letter = event.target.innerHTML;
@@ -75,16 +75,17 @@ const domUpdates = {
     puzzle.checkGuessedLettersArray();
   },
 
-  displayScore(score) {
-    console.log(game.players[round.currPlayer])
-    if (round.currPlayer === 0) {
-      playerOneScore.innerText = `$${score}`;
-    } else if (round.currPlayer === 1) {
-      playerTwoScore.innerText = `$${score}`;
-    } else {
-      playerThreeScore.innerText = `$${score}`;
+  disableVowel(event) {
+    console.log('hi')
+    if (event.target.classList.contains('vowel')) { 
+      event.target.classList.add('change-opacity');
+      console.log(game.players[round.currPlayer])
+      game.players[round.currPlayer].buyVowel();
+      displayScore(game.players[round.currPlayer].score)
     }
+
   },
+
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
@@ -163,6 +164,17 @@ function showBoard() {
       if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
         boxes[i].classList.add('addWhite');
       }
+    }
+  }
+
+  function displayScore(score) {
+    console.log(game.players[round.currPlayer])
+    if (round.currPlayer === 0) {
+      playerOneScore.innerText = `$${score}`;
+    } else if (round.currPlayer === 1) {
+      playerTwoScore.innerText = `$${score}`;
+    } else {
+      playerThreeScore.innerText = `$${score}`;
     }
   }
 
