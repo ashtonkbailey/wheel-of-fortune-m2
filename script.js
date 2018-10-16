@@ -30,9 +30,9 @@ startButton.addEventListener('click', domUpdates.hideStartMenu);
 
 spinBtn.addEventListener('click', domUpdates.displaySpinValue);
 
-letterBank.addEventListener('click', domUpdates.disableLetter);
+letterBank.addEventListener('click', domUpdates.disableConsonant);
 
-vowels.addEventListener('click', domUpdates.disableLetter);
+vowels.addEventListener('click', domUpdates.disableVowel);
 
 buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel);
 

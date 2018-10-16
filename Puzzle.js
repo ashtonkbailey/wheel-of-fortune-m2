@@ -50,7 +50,6 @@ class Puzzle {
 
 	checkGuessedLetter(letter) {
 		let guess = letter.toUpperCase();
-
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
