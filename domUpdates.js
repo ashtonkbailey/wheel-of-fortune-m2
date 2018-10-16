@@ -12,10 +12,7 @@ const domUpdates = {
     game.startGame();
 
     updatePlayerNames();
-    // addAnimation();
-    console.log(puzzle.currentPuzzle.correct_answer);
     showBoard();
-
   },
 
   displayCategory() {
@@ -25,7 +22,7 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
-    console.log('5-generateRandomvalue', wheelValue);
+
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
@@ -38,12 +35,11 @@ const domUpdates = {
          next player's turn`;
       round.switchPlayer();
     } else {
-      // need a function to change player turn and player score
+      round.bankruptPlayer();
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
         <span>${wheelValue}</span>
          your score is reset and now it's next player's turn`;
-      round.switchPlayer();
     };
   },
 
@@ -71,7 +67,7 @@ const domUpdates = {
   disableLetter(event) {
     if (event.target.classList.contains('letters')) { 
       event.target.classList.add('change-opacity');
-    }
+    };
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
