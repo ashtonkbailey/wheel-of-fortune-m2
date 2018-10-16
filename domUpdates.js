@@ -7,6 +7,7 @@ const domUpdates = {
 
     game = new Game;
     game.startGame();
+
     updatePlayerNames();
     addAnimation();
   },
@@ -18,6 +19,7 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
+    console.log('5-generateRandomvalue', wheelValue)
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
@@ -32,7 +34,7 @@ const domUpdates = {
     } else {
       // need a function to change player turn and player score
       gamePrompt.innerHTML = 
-       `YOU LANDED ON 
+        `YOU LANDED ON 
         <span>${wheelValue}</span>
          your score is reset and now it's next player's turn`;
     }
@@ -41,7 +43,7 @@ const domUpdates = {
   disableLetter(event) {
     if (event.target.classList.contains('letters')) { 
       event.target.classList.add('change-opacity');
-      let letter = event.target.innerHTML
+      let letter = event.target.innerHTML;
       puzzle.checkGuessedLetter(letter);
       puzzle.checkGuessedLettersArray();
     }

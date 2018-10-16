@@ -33,7 +33,7 @@ class Puzzle {
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 
 			this.currentPuzzle = randomPuzzle;
-			console.log(this.currentPuzzle)
+			console.log('2-getcategory', this.currentPuzzle)
 
 		} else if (game.currentRound = 2) {
 			let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
@@ -72,9 +72,9 @@ class Puzzle {
 		});
 
 		if (this.guessedLetters.length > 0) {
-			game.currPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
+			round.currPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
 		} else {
-			this.switchPlayer();
+			round.switchPlayer();
 		};
 
     return this.guessedLetters;
