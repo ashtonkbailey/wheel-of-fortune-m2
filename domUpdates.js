@@ -12,10 +12,7 @@ const domUpdates = {
     game.startGame();
 
     updatePlayerNames();
-    // addAnimation();
-    console.log(puzzle.currentPuzzle.correct_answer);
     showBoard();
-
   },
 
   displayCategory() {
@@ -25,26 +22,24 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
-    console.log('5-generateRandomvalue', wheelValue);
+
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
         <span>$${wheelValue}</span>
         now guess a consonant`;
     } else if (wheelValue === 'LOSE A TURN') { 
-      // need a function to change player turn
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
         <span>${wheelValue}</span>
          next player's turn`;
       round.switchPlayer();
     } else {
-      // need a function to change player turn and player score
+      round.bankruptPlayer();
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
         <span>${wheelValue}</span>
          your score is reset and now it's next player's turn`;
-      round.switchPlayer();
     };
   },
 
@@ -55,22 +50,25 @@ const domUpdates = {
          OR SOLVE THE PUZZLE`;
     } else {
       gamePrompt.innerHTML =
-        `NOPE, NEXT PLAYER...`;
+        `NOPE, NEXT PLAYER...
+         SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE`;
     };
   },
 
   solvePuzzleFail() {
     gamePrompt.innerHTML = 
       `NOPE, WRONG ANSWER!
-       NEXT PLAYER...`;
+       NEXT PLAYER...
+       SPIN, BUY A VOWEL,
+       OR SOLVE THE PUZZLE`;
   },
 
   disableConsonant(event) {
     if (event.target.classList.contains('consonant')) { 
       event.target.classList.add('change-opacity');
-    }
+    };
     let letter = event.target.innerHTML;
-    console.log('buyvowel2', 'disableletter', letter)
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
   },
@@ -83,30 +81,60 @@ const domUpdates = {
       game.players[round.currPlayer].buyVowel();
       displayScore(game.players[round.currPlayer].score)
     }
-
+   },
+     
+  displayScore(score) {
+    if (round.currPlayer === 0) {
+      playerOneScore.innerText = `$${score}`;
+    } else if (round.currPlayer === 1) {
+      playerTwoScore.innerText = `$${score}`;
+    } else {
+      playerThreeScore.innerText = `$${score}`;
+    }
   },
 
+  resetScoreDisplay() {
+    playerOneScore.innerText = `$${0}`;
+    playerTwoScore.innerText = `$${0}`;
+    playerThreeScore.innerText = `$${0}`;
+  },
+
+  displayGrandTotal(total) {
+    if (round.currPlayer === 0) {
+      playerOneTotal.innerText = `$${total}`;
+    } else if (round.currPlayer === 1) {
+      playerTwoTotal.innerText = `$${total}`;
+    } else {
+      playerThreeTotal.innerText = `$${total}`;
+    }  
+  },
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
-    // player.buyVowel()
-    console.log('buyvowel1', 'displayvowels')
+    let currentPlayer = game.players[round.currPlayer];
+    currentPlayer.buyVowel();
 
-  },
-
-  displayIncorrectGuess() {
-    gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
   },
 
   displayGuessedLetter(event) {
     let guessedLetter = event.target.id;
-    let boxes = document.querySelectorAll('.box')
-    let splitArray = puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    let boxes = document.querySelectorAll('.box');
+    let splitArray = puzzle.currAnswer;
+
     splitArray.forEach((letter, i) => {
       if (guessedLetter === letter) {
-    boxes[i].innerText = letter
-
+        boxes[i].innerText = letter
       }
+    })
+  },
+
+  displayAnswer(event) {
+    let guessedLetter = event.target.id;
+    let boxes = document.querySelectorAll('.box');
+    let splitArray = puzzle.currAnswer;
+
+    splitArray.forEach((letter, i) => {
+      boxes[i].innerText = letter
     })
   },
 
@@ -160,7 +188,6 @@ function addNameAnimation(playerNum) {
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
     for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
-      console.log(boxes[i]);
       if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
         boxes[i].classList.add('addWhite');
       }
