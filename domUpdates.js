@@ -7,6 +7,7 @@ const domUpdates = {
 
     game = new Game;
     game.startGame();
+
     updatePlayerNames();
     addAnimation();
     console.log(puzzle.currentPuzzle.correct_answer);
@@ -21,6 +22,7 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
+    console.log('5-generateRandomvalue', wheelValue);
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
@@ -32,37 +34,58 @@ const domUpdates = {
         `YOU LANDED ON 
         <span>${wheelValue}</span>
          next player's turn`;
+      round.switchPlayer();
     } else {
       // need a function to change player turn and player score
       gamePrompt.innerHTML = 
-       `YOU LANDED ON 
+        `YOU LANDED ON 
         <span>${wheelValue}</span>
          your score is reset and now it's next player's turn`;
-    }
+      round.switchPlayer();
+    };
+  },
+
+  changePlayerPrompt(lettersArray) {
+    if (puzzle.guessedLetters.length > 0) {
+      gamePrompt.innerHTML = 
+        `NICE WORK! SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE`;
+    } else {
+      gamePrompt.innerHTML =
+        `NOPE, NEXT PLAYER...`;
+    };
+  },
+
+  solvePuzzleFail() {
+    gamePrompt.innerHTML = 
+      `NOPE, WRONG ANSWER!
+       NEXT PLAYER...`;
   },
 
   disableLetter(event) {
     if (event.target.classList.contains('letters')) { 
       event.target.classList.add('change-opacity');
-      let letter = event.target.innerHTML
-      puzzle.checkGuessedLetter(letter);
-      puzzle.checkGuessedLettersArray();
     }
+    let letter = event.target.innerHTML;
+    console.log('buyvowel2', 'disableletter', letter)
+    puzzle.checkGuessedLetter(letter);
+    puzzle.checkGuessedLettersArray();
   },
 
   displayScore(score) {
     console.log(game.players[round.currPlayer])
     if (round.currPlayer === 0) {
-      playerOneScore.innerText = score;
+      playerOneScore.innerText = `$${score}`;
     } else if (round.currPlayer === 1) {
-      playerTwoScore.innerText = score;
+      playerTwoScore.innerText = `$${score}`;
     } else {
-      playerThreeScore.innerText = score;
+      playerThreeScore.innerText = `$${score}`;
     }
   },
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
+    console.log('buyvowel1', 'displayvowels')
   },
 
   displayIncorrectGuess() {
@@ -79,10 +102,18 @@ const domUpdates = {
     
       }
     })
+  },
+
+  displaySolvePuzzle() {
+    solvePuzzle.classList.add('show-solve-puzzle-container');
+  },
+
+
+  hideSolvePuzzle() {
+    solvePuzzle.classList.remove('show-solve-puzzle-container');
+    let playerGuess = document.querySelector('.solve-puzzle-input').value;
+    puzzle.checkSolvePuzzle(playerGuess)
   }
-
-
-}
 
   // changePlayerAnimation(player) {
   //   if (player === 1) {
@@ -97,6 +128,7 @@ const domUpdates = {
   //   }
 
   //  }
+
 
 
 // };

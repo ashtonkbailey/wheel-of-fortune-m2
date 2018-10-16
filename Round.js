@@ -2,8 +2,7 @@ let puzzle;
 let wheel;
 
 class Round {
-	constructor(currCategory, currWheel) {
-		this.currCategory = currCategory;
+	constructor(currWheel) {
 		this.currWheel = currWheel;
 		this.currPlayer = 0;
 	}
@@ -12,16 +11,20 @@ class Round {
 		puzzle = new Puzzle();
 		wheel = new Wheel();
 
-		this.currCategory = puzzle.getCategory();
+		puzzle.getCategory();
 		domUpdates.displayCategory();
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
+		console.log('3-randomizeWheel', this.currWheel)
 		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+		console.log('4-splitanswer', puzzle.currAnswer)
 		//call reset player turn
 	}
 
 	switchPlayer() {
-		if (game.players[this.currPlayer + 1]) {
-			this.currPlayer++
+		console.log('switchPlayer1', this.currPlayer)
+		if (game.players[this.currPlayer] + 1) {
+			this.currPlayer++;
+			console.log('switchPlayer2', this.currPlayer);
 		} else {
 			this.currPlayer = 0;
 		}

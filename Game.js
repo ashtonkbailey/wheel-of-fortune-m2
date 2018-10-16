@@ -12,6 +12,7 @@ class Game {
     this.players.push(new Player())
     this.players.push(new Player())
     this.players.push(new Player())
+    console.log('1-startgame', this.players)
     round.startRound();
   }
 
