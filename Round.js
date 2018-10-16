@@ -21,8 +21,10 @@ class Round {
 	}
 
 	switchPlayer() {
+		console.log('switchPlayer1', this.currPlayer)
 		if (game.players[this.currPlayer] + 1) {
-			this.currPlayer++
+			this.currPlayer++;
+			console.log('switchPlayer2', this.currPlayer);
 		} else {
 			this.currPlayer = 0;
 		}

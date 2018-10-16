@@ -341,10 +341,30 @@ button:hover {
   z-index: 1;
   bottom: 30px;
   right: 330px;
-
 }
 
+.solve-puzzle-container {
+  border: 1px solid black;
+  background-color: #8ea0c2;;
+  display: none;
+}
 
+.show-solve-puzzle-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  height: 120px;
+  bottom: 200px;
+  right: 150px;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.solve-puzzle-input {
+  height: 35px;
+  font-size: 20px;
+}
 
 /*animations*/
 .animatePlayerName {

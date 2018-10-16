@@ -6,22 +6,6 @@ class Puzzle {
 		this.solved = false;
 	}
 
-	displayLetter() {
-		//if guessed letter matches answer, show letter
-	}
-
-	changeLetters() {
-		//changes letter based on guess or buy on alphabet display
-	}
-
-	resetLetters() {
-		//changes alphabet back to original state
-	}
-
-	displayAnswer() {
-		//if puzzle is solved correctly, show answer
-	}
-
 	generateRandomNumber(puzzleBankLength) {
 		return Math.floor(Math.random() * (puzzleBankLength));
 	}
@@ -67,27 +51,28 @@ class Puzzle {
 
 	checkGuessedLetter(letter) {
 		let guess = letter.toUpperCase();
+
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
-
-		if (this.guessedLetters.length > 0) {
-			round.currPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
-		} else {
-			round.switchPlayer();
-		};
+		console.log('buyvowel3', this.guessedLetters)
 
     return this.guessedLetters;
 	}
 
 	checkGuessedLettersArray() {
+		console.log('buyvowel4, currentplayerlog', game.players[round.currPlayer])
+		let currentPlayer = game.players[round.currPlayer];
+
 		if (this.guessedLetters.length > 0) {
-			game.players[round.currPlayer].updatePlayerScore(wheel.currWheelValue, this.guessedLetters)
-			console.log(game.players[round.currPlayer].score)
-			domUpdates.displayScore(game.players[round.currPlayer].score)
-			} else {
-		// 	round.switchPlayer()
-		// }
+			currentPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
+			console.log(currentPlayer.score);
+			domUpdates.displayScore(currentPlayer.score);
+			domUpdates.changePlayerPrompt();
+		} else {
+			round.switchPlayer();
+			domUpdates.changePlayerPrompt();
+		};
 	}
 
 	checkGuessedVowel(letter) {
@@ -99,12 +84,18 @@ class Puzzle {
 	}
 
 
-	checkSolvePuzzle(string) {
-		let upperCaseString = string.toUpperCase();
+	checkSolvePuzzle(guess) {
+		let upperCaseGuess = guess.toUpperCase();
 		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
-		 if (upperCaseString === upperCaseAnswer) {
+		
+		if (upperCaseGuess === upperCaseAnswer) {
 			this.solved = true;	
-
+			//display answer on puzzle
+			//update grand total
+			//finish round
+		} else {
+			domUpdates.solvePuzzleFail();
+			round.switchPlayer();
 		}
 	}
 }
