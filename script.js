@@ -20,6 +20,8 @@ var playerThreeScore = document.querySelector('.player-three-score');
 var solvePuzzleButton = document.querySelector('.solve-puzzle-button');
 var solvePuzzle = document.querySelector('.solve-puzzle-container');
 var guessPuzzleButton = document.querySelector('.solve-guess-button')
+// var boxes = document.querySelector('.box');
+
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
 

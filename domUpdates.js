@@ -10,6 +10,9 @@ const domUpdates = {
 
     updatePlayerNames();
     addAnimation();
+    console.log(puzzle.currentPuzzle.correct_answer);
+    showBoard();
+
   },
 
   displayCategory() {
@@ -85,9 +88,26 @@ const domUpdates = {
     console.log('buyvowel1', 'displayvowels')
   },
 
+  displayIncorrectGuess() {
+    gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
+  },
+
+  displayGuessedLetter(event) {
+    let guessedLetter = event.target.id;
+    let boxes = document.querySelectorAll('.box')
+    let splitArray = puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    splitArray.forEach((letter, i) => {
+      if (guessedLetter === letter) {
+    boxes[i].innerText = letter
+    
+      }
+    })
+  },
+
   displaySolvePuzzle() {
     solvePuzzle.classList.add('show-solve-puzzle-container');
   },
+
 
   hideSolvePuzzle() {
     solvePuzzle.classList.remove('show-solve-puzzle-container');
@@ -95,19 +115,49 @@ const domUpdates = {
     puzzle.checkSolvePuzzle(playerGuess)
   }
 
-};
+  // changePlayerAnimation(player) {
+  //   if (player === 1) {
+  //     let playerNum = playerTwoName;
+  //     addAnimation(playerNum)
+  //   } else if (player === 2) {
+  //     playerNum === playerThreeName;
+  //     addAnimation(playerNum)
+  //   } else {
+  //     playerNum == playerOneName;
+  //     addAnimation(playerNum)
+  //   }
+
+  //  }
+
+
+
+// };
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
   playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
-}
+};
+
+
 
 function addAnimation() {
   playerOneName.classList.add('animatePlayerName');
   currentRoundNumber.classList.add('animateRoundNumber');
   categoryDisplay.classList.add('animateCategorydisplay')
 }
+
+function showBoard() {
+  var boxes = document.querySelectorAll('.box');
+    for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
+      console.log(boxes[i]);
+      if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
+        boxes[i].classList.add('addWhite');
+      }
+      
+    }
+  }
+
 
 
 
