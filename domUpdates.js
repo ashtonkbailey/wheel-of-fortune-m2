@@ -85,7 +85,9 @@ const domUpdates = {
 
   displayBuyVowel() {
     vowels.classList.add('showVowels');
+    player.buyVowel()
     console.log('buyvowel1', 'displayvowels')
+
   },
 
   displayIncorrectGuess() {
@@ -99,7 +101,7 @@ const domUpdates = {
     splitArray.forEach((letter, i) => {
       if (guessedLetter === letter) {
     boxes[i].innerText = letter
-    
+
       }
     })
   },
