@@ -3,7 +3,6 @@ class Puzzle {
 		this.guessedLetters = [];
 		this.currentPuzzle = null;
 		this.currAnswer = null;
-		this.solved = false;
 	}
 
 	generateRandomNumber(puzzleBankLength) {
@@ -55,18 +54,15 @@ class Puzzle {
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
 			return currentIndex.includes(guess);
 		});
-		console.log('buyvowel3', this.guessedLetters)
 
     return this.guessedLetters;
 	}
 
 	checkGuessedLettersArray() {
-		console.log('buyvowel4, currentplayerlog', game.players[round.currPlayer])
 		let currentPlayer = game.players[round.currPlayer];
 
 		if (this.guessedLetters.length > 0) {
 			currentPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
-			console.log(currentPlayer.score);
 			domUpdates.displayScore(currentPlayer.score);
 			domUpdates.changePlayerPrompt();
 			domUpdates.displayGuessedLetter(event);
@@ -92,10 +88,9 @@ class Puzzle {
 		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
 		
 		if (upperCaseGuess === upperCaseAnswer) {
-			this.solved = true;	
-			//display answer on puzzle
-			//update grand total
-			//finish round
+			domUpdates.displayAnswer(event);
+			game.players[round.currPlayer].updateGrandTotal();
+			round.resetRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

@@ -32,7 +32,6 @@ const domUpdates = {
         <span>$${wheelValue}</span>
         now guess a consonant`;
     } else if (wheelValue === 'LOSE A TURN') { 
-      // need a function to change player turn
       gamePrompt.innerHTML = 
         `YOU LANDED ON 
         <span>${wheelValue}</span>
@@ -55,14 +54,18 @@ const domUpdates = {
          OR SOLVE THE PUZZLE`;
     } else {
       gamePrompt.innerHTML =
-        `NOPE, NEXT PLAYER...`;
+        `NOPE, NEXT PLAYER...
+         SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE`;
     };
   },
 
   solvePuzzleFail() {
     gamePrompt.innerHTML = 
       `NOPE, WRONG ANSWER!
-       NEXT PLAYER...`;
+       NEXT PLAYER...
+       SPIN, BUY A VOWEL,
+       OR SOLVE THE PUZZLE`;
   },
 
   disableLetter(event) {
@@ -70,13 +73,11 @@ const domUpdates = {
       event.target.classList.add('change-opacity');
     }
     let letter = event.target.innerHTML;
-    console.log('buyvowel2', 'disableletter', letter)
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
   },
 
   displayScore(score) {
-    console.log(game.players[round.currPlayer])
     if (round.currPlayer === 0) {
       playerOneScore.innerText = `$${score}`;
     } else if (round.currPlayer === 1) {
@@ -86,26 +87,48 @@ const domUpdates = {
     }
   },
 
-  displayBuyVowel() {
-    vowels.classList.add('showVowels');
-    // player.buyVowel()
-    console.log('buyvowel1', 'displayvowels')
-
+  resetScoreDisplay() {
+    playerOneScore.innerText = `$${0}`;
+    playerTwoScore.innerText = `$${0}`;
+    playerThreeScore.innerText = `$${0}`;
   },
 
-  displayIncorrectGuess() {
-    gamePrompt.innerHTML = '<p><span class="player-prompt">INCORRECT! </span>NEXT PLAYER\'S TURN - <span>SPIN, BUY A VOWEL, OR SOLVE THE PUZZLE</span></p> '
+  displayGrandTotal(total) {
+    if (round.currPlayer === 0) {
+      playerOneTotal.innerText = `$${total}`;
+    } else if (round.currPlayer === 1) {
+      playerTwoTotal.innerText = `$${total}`;
+    } else {
+      playerThreeTotal.innerText = `$${total}`;
+    }  
+  },
+
+  displayBuyVowel() {
+    vowels.classList.add('showVowels');
+    let currentPlayer = game.players[round.currPlayer];
+    currentPlayer.buyVowel();
+
   },
 
   displayGuessedLetter(event) {
     let guessedLetter = event.target.id;
-    let boxes = document.querySelectorAll('.box')
-    let splitArray = puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    let boxes = document.querySelectorAll('.box');
+    let splitArray = puzzle.currAnswer;
+
     splitArray.forEach((letter, i) => {
       if (guessedLetter === letter) {
-    boxes[i].innerText = letter
-
+        boxes[i].innerText = letter
       }
+    })
+  },
+
+  displayAnswer(event) {
+    let guessedLetter = event.target.id;
+    let boxes = document.querySelectorAll('.box');
+    let splitArray = puzzle.currAnswer;
+
+    splitArray.forEach((letter, i) => {
+      boxes[i].innerText = letter
     })
   },
 
@@ -159,7 +182,6 @@ function addNameAnimation(playerNum) {
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
     for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
-      console.log(boxes[i]);
       if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
         boxes[i].classList.add('addWhite');
       }
