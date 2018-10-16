@@ -80,7 +80,6 @@ class Puzzle {
 		return this.guessedLetters;
 	}
 
-
 	checkSolvePuzzle(guess) {
 		let upperCaseGuess = guess.toUpperCase();
 		let upperCaseAnswer = this.currentPuzzle.correct_answer.toUpperCase();
@@ -88,7 +87,7 @@ class Puzzle {
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
 			game.players[round.currPlayer].updateGrandTotal();
-			round.resetRound();
+			game.resetRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

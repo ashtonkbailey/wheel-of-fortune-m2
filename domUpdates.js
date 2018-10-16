@@ -25,43 +25,48 @@ const domUpdates = {
 
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
-        `YOU LANDED ON 
+        `You landed on 
         <span>$${wheelValue}</span>
-        now guess a consonant`;
+        now <span>GUESS A CONSONANT</span>`;
     } else if (wheelValue === 'LOSE A TURN') { 
       gamePrompt.innerHTML = 
-        `YOU LANDED ON 
+        `You landed on 
         <span>${wheelValue}</span>
-         next player's turn`;
+         <span class='player-prompt'>next player... </span>
+         <span>SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE</span>`;
       round.switchPlayer();
     } else {
       round.bankruptPlayer();
       gamePrompt.innerHTML = 
-        `YOU LANDED ON 
+        `You landed on 
         <span>${wheelValue}</span>
-         your score is reset and now it's next player's turn`;
+         your score is reset! <span class='player-prompt'>Next player... </span>
+         <span>SPIN, BUY A VOWEL, OR SOLVE 
+        THE PUZZLE</span>`;
     };
   },
 
   changePlayerPrompt(lettersArray) {
     if (puzzle.guessedLetters.length > 0) {
       gamePrompt.innerHTML = 
-        `NICE WORK! SPIN, BUY A VOWEL,
-         OR SOLVE THE PUZZLE`;
+        `Nice Work! <span>SPIN, BUY A VOWEL,
+         OR SOLVE THE PUZZLE</span>`;
     } else {
       gamePrompt.innerHTML =
-        `NOPE, NEXT PLAYER...
-         SPIN, BUY A VOWEL,
-         OR SOLVE THE PUZZLE`;
+        `Sorry!, <span class='player-prompt'>
+        Next player... </span>
+        <span>SPIN, BUY A VOWEL, OR SOLVE
+         THE PUZZLE</span>`;
     };
   },
 
   solvePuzzleFail() {
     gamePrompt.innerHTML = 
-      `NOPE, WRONG ANSWER!
-       NEXT PLAYER...
-       SPIN, BUY A VOWEL,
-       OR SOLVE THE PUZZLE`;
+      `Sorry, Wrong Answer!
+       <span class='player-prompt'>Next player... </span>
+       <span>SPIN, BUY A VOWEL, OR SOLVE
+       THE PUZZLE</span>`;
   },
 
   disableConsonant(event) {
@@ -138,6 +143,23 @@ const domUpdates = {
     })
   },
 
+  removeBoard() {
+    var boxes = document.querySelectorAll('.box');
+    for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
+      boxes[i].classList.remove('addWhite');
+      boxes[i].innerText = ''
+    }
+  },
+
+  resetLetters() {
+    let letters = document.querySelectorAll('.letters');
+    letters.forEach(letter => {
+      if (letter.classList.contains('change-opacity')) {
+        letter.classList.remove('change-opacity')
+      }
+    })
+  },
+
   displaySolvePuzzle() {
     solvePuzzle.classList.add('show-solve-puzzle-container');
   },
@@ -192,7 +214,7 @@ function showBoard() {
         boxes[i].classList.add('addWhite');
       }
     }
-  }
+}
 
   function displayScore(score) {
     console.log(game.players[round.currPlayer])
