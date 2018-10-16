@@ -16,6 +16,14 @@ class Game {
     round.startRound();
   }
 
+  resetRound() {
+    this.currentRound++;
+    round.resetPlayerScore();
+    domUpdates.resetScoreDisplay();
+    round = new Round();
+    round.startRound();
+  }
+
 
 }
 

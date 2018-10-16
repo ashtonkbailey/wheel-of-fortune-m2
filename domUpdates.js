@@ -78,8 +78,11 @@ const domUpdates = {
     if (event.target.classList.contains('vowel')) { 
       event.target.classList.add('change-opacity');
       console.log(game.players[round.currPlayer])
-      game.players[round.currPlayer].buyVowel();
-      displayScore(game.players[round.currPlayer].score)
+      // game.players[round.currPlayer].buyVowel();
+
+      let letter = event.target.innerHTML;
+      // puzzle.checkGuessedVowel(letter);
+      domUpdates.displayGuessedLetter(event)
     }
    },
      
@@ -113,6 +116,8 @@ const domUpdates = {
     vowels.classList.add('showVowels');
     let currentPlayer = game.players[round.currPlayer];
     currentPlayer.buyVowel();
+    displayScore(game.players[round.currPlayer].score);
+
 
   },
 
@@ -171,6 +176,9 @@ function changePlayerAnimation(currentPlayer) {
     }
   }
 
+function addNameAnimation(playerNum) {
+  playerNum.classList.add('animatePlayerName');
+}
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
@@ -180,9 +188,6 @@ function updatePlayerNames() {
 
 
 
-function addNameAnimation(playerNum) {
-  playerNum.classList.add('animatePlayerName');
-}
 
 
 function showBoard() {

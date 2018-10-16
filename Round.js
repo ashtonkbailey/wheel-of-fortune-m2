@@ -36,12 +36,7 @@ class Round {
 		}
 	}
 
-	resetRound() {
-		game.currentRound++;
-		this.resetPlayerScore();
-		domUpdates.resetScoreDisplay();
-		round = new Round();
-	}
+
 
 	resetPlayerScore() {
 		game.players.forEach(player => {
