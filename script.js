@@ -1,5 +1,6 @@
 var startButton = document.querySelector('.start-button');
 var startContainer = document.querySelector('.start-container');
+var gamePage = document.querySelector('.game-page');
 var categoryDisplay = document.querySelector('.category-display');
 var nameOneInput = document.querySelector('.name_one_input')
 var nameTwoInput = document.querySelector('.name_two_input')
