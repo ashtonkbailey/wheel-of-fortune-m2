@@ -188,6 +188,8 @@ const domUpdates = {
     wonRound.classList.add('hide');
     gamePage.classList.remove('game-blur')
     game.winRound();
+    // currentRoundNumber.classList.add('animateRoundNumber');
+    // categoryDisplay.classList.add('animateCategorydisplay');
   },
     
   newGame() {
@@ -195,7 +197,7 @@ const domUpdates = {
   },
 
    updateRoundNumber() {
-    let rounds = [1,2,3]
+    let rounds = [1, 2, 3, 4];
     rounds.forEach((round) => {
       if (game.currentRound === round) {
         currentRoundNumber.innerHTML = `ROUND ${round}`;
@@ -260,9 +262,13 @@ function showBoard() {
     for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
       if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
         boxes[i].classList.add('addWhite');
+      } 
+       if (puzzle.currentPuzzle.correct_answer.charAt(i) === '-') {
+        boxes[i].innerText = '-';
       }
     }
-}
+
+  }
 
   function displayScore(score) {
     console.log(game.players[round.currPlayer])
