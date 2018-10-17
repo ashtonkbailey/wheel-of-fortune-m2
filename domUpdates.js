@@ -22,6 +22,7 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
+    letterBank.classList.remove('avoid-clicks')
 
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
@@ -76,6 +77,7 @@ const domUpdates = {
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
+    letterBank.classList.add('avoid-clicks')
   },
 
   disableVowel(event) {
@@ -127,8 +129,6 @@ const domUpdates = {
     let currentPlayer = game.players[round.currPlayer];
     currentPlayer.buyVowel();
     displayScore(game.players[round.currPlayer].score);
-
-
   },
 
   displayGuessedLetter(event) {
@@ -173,7 +173,6 @@ const domUpdates = {
   displaySolvePuzzle() {
     solvePuzzle.classList.add('show-solve-puzzle-container');
   },
-
 
   hideSolvePuzzle() {
     solvePuzzle.classList.remove('show-solve-puzzle-container');
