@@ -15,7 +15,6 @@ class Round {
 		domUpdates.displayCategory();
 
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
-		console.log('3-randomizeWheel', this.currWheel)
 		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
 		console.log('4-splitanswer', puzzle.currAnswer)
 	}

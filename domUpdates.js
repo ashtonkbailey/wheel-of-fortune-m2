@@ -192,7 +192,32 @@ const domUpdates = {
     
   newGame() {
     location.reload();
+  },
+
+   updateRoundNumber() {
+    let rounds = [1,2,3]
+    rounds.forEach((round) => {
+      if (game.currentRound === round) {
+        currentRoundNumber.innerHTML = `ROUND ${round}`;
+      }
+    })
   }
+
+  // updateRoundNumber() {
+  //   if (game.currentRound == 1) {
+  //     currentRoundNumber.innerHTML = 'ROUND 1';
+  //     // currentRoundNumber.classList.add('animateRoundNumber');
+  //   } else if (game.currentRound === 2) {
+  //     currentRoundNumber.innerHTML = 'ROUND 2';
+  //     // currentRoundNumber.classList.add('animateRoundNumber');
+  //   } else if (game.currentRound === 3) {
+  //     currentRoundNumber.innerHTML = 'ROUND 3';
+  //     // currentRoundNumber.classList.add('animateRoundNumber');
+  //   } else {
+  //     currentRoundNumber.innerHTML = 'ROUND 4';
+  //     // currentRoundNumber.classList.add('animateRoundNumber');
+  //   }
+  // }
 
   
 };
