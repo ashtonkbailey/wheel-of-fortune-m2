@@ -32,7 +32,7 @@ const domUpdates = {
       gamePrompt.innerHTML = 
         `You landed on 
         <span>${wheelValue}</span>
-         <span class='player-prompt'>next player... </span>
+         <span class='player-prompt'>NEXT PLAYER... </span>
          <span>SPIN, BUY A VOWEL,
          OR SOLVE THE PUZZLE</span>`;
       round.switchPlayer();
@@ -41,7 +41,7 @@ const domUpdates = {
       gamePrompt.innerHTML = 
         `You landed on 
         <span>${wheelValue}</span>
-         your score is reset! <span class='player-prompt'>Next player... </span>
+         your score is reset! <span class='player-prompt'>NEXT PLAYER... </span>
          <span>SPIN, BUY A VOWEL, OR SOLVE 
         THE PUZZLE</span>`;
     };
@@ -50,12 +50,12 @@ const domUpdates = {
   changePlayerPrompt(lettersArray) {
     if (puzzle.guessedLetters.length > 0) {
       gamePrompt.innerHTML = 
-        `Nice Work! <span>SPIN, BUY A VOWEL,
+        `NICE WORK! <span>SPIN, BUY A VOWEL,
          OR SOLVE THE PUZZLE</span>`;
     } else {
       gamePrompt.innerHTML =
-        `Sorry!, <span class='player-prompt'>
-        Next player... </span>
+        `WRONG! <span class='player-prompt'>
+        NEXT PLAYER... </span>
         <span>SPIN, BUY A VOWEL, OR SOLVE
          THE PUZZLE</span>`;
     };
@@ -63,8 +63,8 @@ const domUpdates = {
 
   solvePuzzleFail() {
     gamePrompt.innerHTML = 
-      `Sorry, Wrong Answer!
-       <span class='player-prompt'>Next player... </span>
+      `WRONG ANSWER!
+       <span class='player-prompt'>NEXT PLAYER... </span>
        <span>SPIN, BUY A VOWEL, OR SOLVE
        THE PUZZLE</span>`;
   },
@@ -86,8 +86,9 @@ const domUpdates = {
       // game.players[round.currPlayer].buyVowel();
 
       let letter = event.target.innerHTML;
-      // puzzle.checkGuessedVowel(letter);
-      domUpdates.displayGuessedLetter(event)
+      puzzle.checkGuessedLetter(letter)
+      puzzle.checkGuessedVowelsArray();
+      // domUpdates.displayGuessedLetter(event)
     }
    },
      
