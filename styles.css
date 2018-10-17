@@ -17,10 +17,8 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-   
     justify-content: center;
 }
-
 
 /*window to start game*/
 .welcome-page {
@@ -103,7 +101,6 @@ input {
   grid-template-rows: auto;
 }
 
-
 /*current round number label*/
 h2 {
   text-align: center;
@@ -118,7 +115,6 @@ h2 {
       -1px 1px 0 #000,
        1px 1px 0 #000;
 }
-
 
 /*player score boards*/
 .score-board {
@@ -328,9 +324,21 @@ button:hover {
        2px 2px 2px #000
 }
 
+.won-round-modal {
+  background-color: rgba(0,0,0,0.1);
+  margin: 0 auto;
+  min-width: 210px;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
 /*adding and hiding classes*/
-
-
 .show {
   display: inline-block;
 }
@@ -363,7 +371,6 @@ button:hover {
   display: none;
 }
 
-
 .show-solve-puzzle-container {
   display: flex;
   flex-direction: column;
@@ -391,7 +398,6 @@ button:hover {
   color: purple;
   animation: blink 1.3s linear infinite;
 }
-
 
 @keyframes blink{
 0%{opacity: 0;}

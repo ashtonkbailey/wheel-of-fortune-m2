@@ -16,6 +16,11 @@ class Game {
     round.startRound();
   }
 
+  winRound() {
+    this.players[round.currPlayer].updateGrandTotal();
+    this.resetRound();
+  }
+
   resetRound() {
     this.currentRound++;
     round.resetPlayerScore();
