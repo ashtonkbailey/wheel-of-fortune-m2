@@ -171,6 +171,7 @@ const domUpdates = {
 
   displaySolvePuzzle() {
     solvePuzzle.classList.add('show-solve-puzzle-container');
+    solvePuzzleInput.focus();
   },
 
   hideSolvePuzzle() {

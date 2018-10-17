@@ -20,6 +20,7 @@ var playerTwoScore = document.querySelector('.player-two-score');
 var playerThreeScore = document.querySelector('.player-three-score');
 var solvePuzzleButton = document.querySelector('.solve-puzzle-button');
 var solvePuzzle = document.querySelector('.solve-puzzle-container');
+var solvePuzzleInput = document.querySelector('.solve-puzzle-input');
 var guessPuzzleButton = document.querySelector('.solve-guess-button');
 var playerOneTotal = document.querySelector('.player-one-total');
 var playerTwoTotal = document.querySelector('.player-two-total');
