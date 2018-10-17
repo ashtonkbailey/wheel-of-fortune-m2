@@ -2,7 +2,7 @@ let puzzle;
 let wheel;
 
 class Round {
-	constructor(currWheel) {
+	constructor(currWheel, currPlayer) {
 		this.currWheel = currWheel;
 		this.currPlayer = 0;
 	}

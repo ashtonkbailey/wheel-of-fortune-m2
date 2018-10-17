@@ -1,11 +1,21 @@
+let puzzle;
+let wheel;
+
 class BonusRound extends Round {
-  constructor(currCategory, currWheel, currPlayer, bonusWheel) {
-    super(currCategory, currWheel, currPlayer);
-    this.bonusWheel = bonusWheel;
+  constructor(currWheel, currPlayer) {
+    super(currWheel, currPlayer);
   }
 
-  getBonusWheel() {
-    //call bonusWheel from Wheel
+  startBonusRound() {
+    puzzle = new Puzzle;
+    wheel = new Wheel;
+
+    puzzle.getCategory();
+    domUpdates.displayCategory();
+
+    this.currWheel = bonusWheel.generateBonusArray(wheel.valuesArray);
+    puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer);
+    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
   }
 
 }

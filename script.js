@@ -12,7 +12,6 @@ var currentRoundNumber = document.querySelector('h2');
 var gamePrompt = document.querySelector('.game-prompt');
 var spinBtn = document.querySelector('.spin-wheel-button');
 var letterBank = document.querySelector('.letter-bank');
-// var letterB = document.querySelector('.b')
 var buyVowelButton = document.querySelector('.buy-vowel-button');
 var vowels = document.querySelector('.vowels');
 var playerOneScore = document.querySelector('.player-one-score');
@@ -26,7 +25,6 @@ var playerOneTotal = document.querySelector('.player-one-total');
 var playerTwoTotal = document.querySelector('.player-two-total');
 var playerThreeTotal = document.querySelector('.player-three-total');
 var newGameButton = document.querySelector('.new-game-button')
-// var boxes = document.querySelector('.box');
 var wonRound = document.querySelector('.won-round-modal');
 var keepPlaying = document.querySelector('.keep-playing-button');
 
