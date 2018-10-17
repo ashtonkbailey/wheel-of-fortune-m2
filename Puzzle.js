@@ -99,8 +99,7 @@ class Puzzle {
 		
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
-			game.players[round.currPlayer].updateGrandTotal();
-			game.resetRound();
+			domUpdates.showWonRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

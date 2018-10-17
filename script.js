@@ -1,6 +1,6 @@
 var startButton = document.querySelector('.start-button');
 var startContainer = document.querySelector('.start-container');
-var gamePage = document.querySelector('.game-page');
+var gamePage = document.querySelector('.game-page')
 var categoryDisplay = document.querySelector('.category-display');
 var nameOneInput = document.querySelector('.name_one_input')
 var nameTwoInput = document.querySelector('.name_two_input')
@@ -26,6 +26,8 @@ var playerTwoTotal = document.querySelector('.player-two-total');
 var playerThreeTotal = document.querySelector('.player-three-total');
 var newGameButton = document.querySelector('.new-game-button')
 // var boxes = document.querySelector('.box');
+var wonRound = document.querySelector('.won-round-modal');
+
 
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);

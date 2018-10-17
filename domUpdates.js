@@ -95,9 +95,7 @@ const domUpdates = {
 
       // domUpdates.displayGuessedLetter(event)
     }
-
-
-   },
+  },
      
   displayScore(score) {
     if (round.currPlayer === 0) {
@@ -181,6 +179,17 @@ const domUpdates = {
     puzzle.checkSolvePuzzle(playerGuess)
   },
 
+  showWonRound() {
+    gamePage.classList.add('game-blur');
+    wonRound.classList.remove('hide');
+  },
+
+  hideWonRound() {
+    wonRound.classList.add('hide');
+    gamePage.classList.remove('game-blur')
+    game.winRound();
+  },
+    
   newGame() {
     location.reload();
   }
