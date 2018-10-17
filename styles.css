@@ -152,7 +152,6 @@ h2 {
 
 }
 
-
 .score-text, .total-text {
   font-size: 14px;
   font-weight: 700;
@@ -290,6 +289,10 @@ and player prompting*/
 
 .letters:hover {
   color: purple;
+}
+
+.avoid-clicks {
+  pointer-events: none;
 }
 
 .box {
