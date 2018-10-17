@@ -327,9 +327,6 @@ button:hover {
 
 /*adding and hiding classes*/
 
-.hide {
-  display: none;
-}
 
 .show {
   display: inline-block;
@@ -354,6 +351,9 @@ button:hover {
  /* height: 50px;*/
 }
 
+.hide {
+  display: none;
+}
 .solve-puzzle-container {
   border: 1px solid black;
   background-color: #8ea0c2;;

@@ -88,8 +88,12 @@ const domUpdates = {
       let letter = event.target.innerHTML;
       puzzle.checkGuessedLetter(letter)
       puzzle.checkGuessedVowelsArray();
+      vowels.classList.add('hide');
+
       // domUpdates.displayGuessedLetter(event)
     }
+
+
    },
      
   displayScore(score) {
