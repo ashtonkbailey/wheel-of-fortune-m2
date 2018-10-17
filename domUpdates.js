@@ -181,6 +181,10 @@ const domUpdates = {
     puzzle.checkSolvePuzzle(playerGuess)
   },
 
+  newGame() {
+    location.reload();
+  }
+
   
 };
 
