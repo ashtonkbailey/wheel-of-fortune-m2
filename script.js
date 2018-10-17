@@ -24,6 +24,7 @@ var guessPuzzleButton = document.querySelector('.solve-guess-button');
 var playerOneTotal = document.querySelector('.player-one-total');
 var playerTwoTotal = document.querySelector('.player-two-total');
 var playerThreeTotal = document.querySelector('.player-three-total');
+var newGameButton = document.querySelector('.new-game-button')
 // var boxes = document.querySelector('.box');
 var wonRound = document.querySelector('.won-round-modal');
 
@@ -42,5 +43,7 @@ buyVowelButton.addEventListener('click', domUpdates.displayBuyVowel);
 solvePuzzleButton.addEventListener('click', domUpdates.displaySolvePuzzle);
 
 guessPuzzleButton.addEventListener('click', domUpdates.hideSolvePuzzle)
+
+newGameButton.addEventListener('click', domUpdates.newGame)
 
 

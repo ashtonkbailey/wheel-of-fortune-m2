@@ -17,6 +17,7 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
+    z-index: 1;
     justify-content: center;
 }
 
@@ -99,6 +100,21 @@ input {
 .game-page {
   display: grid;
   grid-template-rows: auto;
+}
+
+.game-blur {
+  position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background:black;
+    background:rgba(0,0,0,0.8);
+    filter:blur(4px);
+    -o-filter:blur(4px);
+    -ms-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -webkit-filter:blur(4px);
 }
 
 /*current round number label*/
