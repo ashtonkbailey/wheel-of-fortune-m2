@@ -16,7 +16,7 @@ class Puzzle {
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 
 			this.currentPuzzle = randomPuzzle;
-			console.log('2-getcategory', this.currentPuzzle)
+
 
 		} else if (game.currentRound = 2) {
 			let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
@@ -100,6 +100,7 @@ class Puzzle {
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
 			domUpdates.showWonRound();
+			round.startRound()
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

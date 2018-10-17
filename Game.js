@@ -9,10 +9,10 @@ class Game {
 
   startGame() {
     round = new Round();
+    console.log('starting round is: ' + this.currentRound)
     this.players.push(new Player())
     this.players.push(new Player())
     this.players.push(new Player())
-    console.log('1-startgame', this.players)
     round.startRound();
   }
 
@@ -23,6 +23,8 @@ class Game {
 
   resetRound() {
     this.currentRound++;
+    domUpdates.updateRoundNumber();
+    console.log('current round is: ' + this.currentRound)
     round.resetPlayerScore();
     domUpdates.resetScoreDisplay();
     domUpdates.removeBoard();
