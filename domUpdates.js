@@ -7,6 +7,7 @@ const domUpdates = {
     currentRoundNumber.classList.add('animateRoundNumber');
     categoryDisplay.classList.add('animateCategorydisplay');
     playerOneName.classList.add('animatePlayerName');
+    gamePage.classList.remove('game-blur');
 
     game = new Game;
     game.startGame();
