@@ -10,7 +10,7 @@ class Puzzle {
 	}
 
 	getCategory() {
-		if (game.currentRound = 1) {
+		if (game.currentRound === 1) {
 			let puzzleBankLength = data.puzzles.one_word_answers.puzzle_bank.length
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
@@ -18,21 +18,21 @@ class Puzzle {
 			this.currentPuzzle = randomPuzzle;
 
 
-		} else if (game.currentRound = 2) {
+		} else if (game.currentRound === 2) {
 			let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.two_word_answers.puzzle_bank[randomNum];
 
 			this.currentPuzzle = randomPuzzle;
 
-		} else if (game.currentRound = 3) {
+		} else if (game.currentRound === 3) {
 			let puzzleBankLength = data.puzzles.three_word_answers.puzzle_bank.length
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.three_word_answers.puzzle_bank[randomNum];
 
 			this.currentPuzzle = randomPuzzle;
 
-		} else if (game.currentRound = 4)	{
+		} else if (game.currentRound === 4)	{
 			let puzzleBankLength = data.puzzles.four_word_answers.puzzle_bank.length
 			let randomNum = this.generateRandomNumber(puzzleBankLength);
 			let randomPuzzle = data.puzzles.four_word_answers.puzzle_bank[randomNum];
@@ -100,7 +100,7 @@ class Puzzle {
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
 			domUpdates.showWonRound();
-			round.startRound()
+			game.resetRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

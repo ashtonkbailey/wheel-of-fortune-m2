@@ -18,7 +18,6 @@ class Game {
 
   winRound() {
     this.players[round.currPlayer].updateGrandTotal();
-    this.resetRound();
   }
 
   resetRound() {
@@ -33,8 +32,7 @@ class Game {
     round.startRound();
     showBoard();
     changePlayerAnimation(round.currPlayer)
-    round = new Round();
-    round.startRound();
+  
 
   }
 
