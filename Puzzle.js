@@ -23,29 +23,30 @@ class Puzzle {
 		}
 	}
 
+
 	getPuzzleOne() {
 		let puzzleBankLength = data.puzzles.one_word_answers.puzzle_bank.length
 		let randomNum = this.generateRandomNumber(puzzleBankLength);
 		let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
-
 		this.currentPuzzle = randomPuzzle;
 	}
+
 
 	getPuzzleTwo() {
 		let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
 		let randomNum = this.generateRandomNumber(puzzleBankLength);
 		let randomPuzzle = data.puzzles.two_word_answers.puzzle_bank[randomNum];
-
 		this.currentPuzzle = randomPuzzle;
 	}
+
 
 	getPuzzleThree() {
 		let puzzleBankLength = data.puzzles.three_word_answers.puzzle_bank.length
 		let randomNum = this.generateRandomNumber(puzzleBankLength);
 		let randomPuzzle = data.puzzles.three_word_answers.puzzle_bank[randomNum];
-
 		this.currentPuzzle = randomPuzzle;
 	}
+
 
 	getPuzzleFour() {
 		let puzzleBankLength = data.puzzles.four_word_answers.puzzle_bank.length
@@ -114,6 +115,7 @@ class Puzzle {
 			domUpdates.displayAnswer(event);
 			domUpdates.showWonRound();
 			game.resetRound()
+
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

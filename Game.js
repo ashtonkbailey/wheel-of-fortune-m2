@@ -39,6 +39,7 @@ class Game {
       this.bonusRound = true;
       bonusRound = new BonusRound();
     }
+
   }
 
 

@@ -25,7 +25,6 @@ var playerOneTotal = document.querySelector('.player-one-total');
 var playerTwoTotal = document.querySelector('.player-two-total');
 var playerThreeTotal = document.querySelector('.player-three-total');
 var newGameButton = document.querySelector('.new-game-button')
-// var boxes = document.querySelector('.box');
 var wonRound = document.querySelector('.won-round-modal');
 var keepPlaying = document.querySelector('.keep-playing-button');
 
