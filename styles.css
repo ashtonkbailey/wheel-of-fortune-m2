@@ -150,7 +150,7 @@ h2 {
 .text {
   margin-bottom: 10px;
   color: white;
-   text-shadow:
+  text-shadow:
        3px 3px 8px #000, 
        3px 3px 8px #000, 
        -1px -1px 0 #000, 
@@ -341,17 +341,33 @@ button:hover {
 }
 
 .won-round-modal {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.3);
   margin: 0 auto;
-  min-width: 210px;
   padding: 40px;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 85%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 100px;
+  z-index: 1;
+}
+
+.won-round {
+  -webkit-text-stroke: 1px teal;
+  color: darkmagenta;
+  text-shadow: 
+    3px 3px 0 teal, 
+    -1px -1px 0 teal, 
+    1px -1px 0 teal, 
+    -1px 1px 0 teal, 
+    1px 1px 0 teal;
+  font-size: 5em;
+  font-family: 'Courgette', cursive;
+  margin: 2em;
+  margin-top: 0;
 }
 
 /*adding and hiding classes*/
