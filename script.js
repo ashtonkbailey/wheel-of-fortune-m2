@@ -12,7 +12,6 @@ var currentRoundNumber = document.querySelector('h2');
 var gamePrompt = document.querySelector('.game-prompt');
 var spinBtn = document.querySelector('.spin-wheel-button');
 var letterBank = document.querySelector('.letter-bank');
-var letterB = document.querySelector('.b')
 var buyVowelButton = document.querySelector('.buy-vowel-button');
 var vowels = document.querySelector('.vowels');
 var playerOneScore = document.querySelector('.player-one-score');

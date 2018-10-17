@@ -10,36 +10,49 @@ class Puzzle {
 	}
 
 	getCategory() {
-		if (game.currentRound = 1) {
-			let puzzleBankLength = data.puzzles.one_word_answers.puzzle_bank.length
-			let randomNum = this.generateRandomNumber(puzzleBankLength);
-			let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
+		if (game.currentRound === 1) {
+			this.getPuzzleOne();
+		} else if (game.currentRound === 2) {
+			this.getPuzzleTwo();
+		} else if (game.currentRound === 3) {
+			this.getPuzzleThree();
+		} else if (game.currentRound === 4)	{
+			this.getPuzzleFour();
+		} else if (game.currentRound === true) {
+			this.getPuzzleTwo();
+		}
+	}
 
-			this.currentPuzzle = randomPuzzle;
+	getPuzzleOne() {
+		let puzzleBankLength = data.puzzles.one_word_answers.puzzle_bank.length
+		let randomNum = this.generateRandomNumber(puzzleBankLength);
+		let randomPuzzle = data.puzzles.one_word_answers.puzzle_bank[randomNum];
 
+		this.currentPuzzle = randomPuzzle;
+	}
 
-		} else if (game.currentRound = 2) {
-			let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
-			let randomNum = this.generateRandomNumber(puzzleBankLength);
-			let randomPuzzle = data.puzzles.two_word_answers.puzzle_bank[randomNum];
+	getPuzzleTwo() {
+		let puzzleBankLength = data.puzzles.two_word_answers.puzzle_bank.length
+		let randomNum = this.generateRandomNumber(puzzleBankLength);
+		let randomPuzzle = data.puzzles.two_word_answers.puzzle_bank[randomNum];
 
-			this.currentPuzzle = randomPuzzle;
+		this.currentPuzzle = randomPuzzle;
+	}
 
-		} else if (game.currentRound = 3) {
-			let puzzleBankLength = data.puzzles.three_word_answers.puzzle_bank.length
-			let randomNum = this.generateRandomNumber(puzzleBankLength);
-			let randomPuzzle = data.puzzles.three_word_answers.puzzle_bank[randomNum];
+	getPuzzleThree() {
+		let puzzleBankLength = data.puzzles.three_word_answers.puzzle_bank.length
+		let randomNum = this.generateRandomNumber(puzzleBankLength);
+		let randomPuzzle = data.puzzles.three_word_answers.puzzle_bank[randomNum];
 
-			this.currentPuzzle = randomPuzzle;
+		this.currentPuzzle = randomPuzzle;
+	}
 
-		} else if (game.currentRound = 4)	{
-			let puzzleBankLength = data.puzzles.four_word_answers.puzzle_bank.length
-			let randomNum = this.generateRandomNumber(puzzleBankLength);
-			let randomPuzzle = data.puzzles.four_word_answers.puzzle_bank[randomNum];
+	getPuzzleFour() {
+		let puzzleBankLength = data.puzzles.four_word_answers.puzzle_bank.length
+		let randomNum = this.generateRandomNumber(puzzleBankLength);
+		let randomPuzzle = data.puzzles.four_word_answers.puzzle_bank[randomNum];
 
-			this.currentPuzzle = randomPuzzle;
-
-		} //what to do for bonusround?
+		this.currentPuzzle = randomPuzzle;
 	}
 
 	splitAnswer(answer) {
@@ -100,7 +113,7 @@ class Puzzle {
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
 			domUpdates.showWonRound();
-			round.startRound()
+			game.resetRound()
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();

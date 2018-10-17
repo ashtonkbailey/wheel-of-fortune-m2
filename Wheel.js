@@ -1,5 +1,5 @@
 class Wheel {
-  constructor(currWheelValue) {
+  constructor(currWheelValue, valuesArray, generateRandomValue) {
     this.currWheelValue = currWheelValue;
     this.valuesArray = data.wheel;
     this.generateRandomValue = this.generateRandomValue.bind(this)
