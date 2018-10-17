@@ -72,6 +72,19 @@ class Puzzle {
 		};
 	}
 
+	checkGuessedVowelsArray() {
+		if (this.guessedLetters.length > 0) {
+			domUpdates.displayGuessedLetter(event);
+
+		} else {
+			round.switchPlayer();
+			changePlayerAnimation(round.currPlayer)
+			domUpdates.changePlayerPrompt();
+
+		}
+
+	}
+
 	checkGuessedVowel(letter) {
 		let guess = letter.toUpperCase();
 		this.guessedLetters = this.currAnswer.filter((currentIndex) => {
