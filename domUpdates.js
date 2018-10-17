@@ -23,7 +23,7 @@ const domUpdates = {
 
   displaySpinValue() {
     let wheelValue = wheel.generateRandomValue();
-    letterBank.classList.remove('avoid-clicks')
+    enableLetters();
 
     if (typeof wheelValue === 'number' ) {
       gamePrompt.innerHTML = 
@@ -78,7 +78,7 @@ const domUpdates = {
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
-    letterBank.classList.add('avoid-clicks')
+    disableLetters();
   },
 
   disableVowel(event) {
@@ -195,7 +195,7 @@ const domUpdates = {
     location.reload();
   },
 
-   updateRoundNumber() {
+  updateRoundNumber() {
     let rounds = [1,2,3]
     rounds.forEach((round) => {
       if (game.currentRound === round) {
@@ -252,9 +252,13 @@ function updatePlayerNames() {
   playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
 };
 
+function enableLetters() {
+    letterBank.classList.remove('avoid-clicks');
+};
 
-
-
+function disableLetters() {
+  letterBank.classList.add('avoid-clicks');
+}
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
