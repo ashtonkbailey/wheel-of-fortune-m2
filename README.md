@@ -6,7 +6,7 @@ Play there game here:
 
 https://ashtonkbailey.github.io/wheel-of-fortune-m2/
 
-[This](/images/readme-photo.png) 
+(/images/readme-photo.png) 
 
 
 Versioning
