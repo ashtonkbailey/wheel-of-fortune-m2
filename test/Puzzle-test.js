@@ -87,7 +87,7 @@ describe('Puzzle', () => {
     };
 
     puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
-    let guessedVowel= 'a';
+    let guessedVowel = 'a';
     let letterCheck = puzzle.checkGuessedVowel(guessedVowel);
     expect(letterCheck).to.deep.equal(['A', 'A']);
 

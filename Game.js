@@ -21,11 +21,11 @@ class Game {
   }
 
   resetRound() {
-      this.currentRound++;
-      round.resetPlayerScore();
-      domUpdates.resetScoreDisplay();
-      domUpdates.removeBoard();
-      domUpdates.resetLetters();
+    this.currentRound++;
+    round.resetPlayerScore();
+    domUpdates.resetScoreDisplay();
+    domUpdates.removeBoard();
+    domUpdates.resetLetters();
 
     if (this.currentRound <= 4) {
       domUpdates.updateRoundNumber();
@@ -38,10 +38,8 @@ class Game {
       bonusRound.startBonusRound();
       showBoard();
       enableLetters();
-    };
-
+    }
   }
-
 
 }
 
