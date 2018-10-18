@@ -16,7 +16,6 @@ class Round {
 
 		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
 		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
-		console.log('4-splitanswer', puzzle.currAnswer)
 	}
 
 	bankruptPlayer() {

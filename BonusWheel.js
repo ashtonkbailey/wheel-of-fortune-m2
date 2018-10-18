@@ -13,11 +13,12 @@ class BonusWheel extends Wheel {
       }
     });
 
-    this.newBonusWheelArray = wheelArray.map((element) => {
+    this.bonusWheelArray = wheelArray.map((element) => {
       return element + 300
     });
 
-    domUpdates.displaySpinValue();
+    this.currWheelValue = this.generateRandomValue()
+
   }
 
 

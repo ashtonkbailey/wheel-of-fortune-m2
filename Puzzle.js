@@ -116,7 +116,6 @@ class Puzzle {
 			domUpdates.displayAnswer(event);
 			game.winRound();
 			domUpdates.showWonRound();
-			game.resetRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();
