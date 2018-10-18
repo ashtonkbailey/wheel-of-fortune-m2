@@ -27,7 +27,9 @@ var playerThreeTotal = document.querySelector('.player-three-total');
 var newGameButton = document.querySelector('.new-game-button')
 var wonRound = document.querySelector('.won-round-modal');
 var keepPlaying = document.querySelector('.keep-playing-button');
-
+var bonusLetters = document.querySelector('.bonus-letters');
+var bonusVowels = document.querySelector('.bonus-vowels');
+var roundLetters = document.querySelector('.round-letters');
 
 
 startButton.addEventListener('click', domUpdates.hideStartMenu);
@@ -46,6 +48,8 @@ guessPuzzleButton.addEventListener('click', domUpdates.hideSolvePuzzle);
 
 newGameButton.addEventListener('click', domUpdates.newGame);
 
-keepPlaying.addEventListener('click', domUpdates.hideWonRound)
+keepPlaying.addEventListener('click', domUpdates.hideWonRound);
+
+bonusVowels.addEventListener('click', domUpdates);
 
 

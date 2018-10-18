@@ -2,31 +2,34 @@ let puzzle;
 let wheel;
 
 class Round {
-  constructor(currWheel, currPlayer) {
-    this.currWheel = currWheel;
-    this.currPlayer = 0;
-  }
+	constructor(currWheel, currPlayer) {
+		this.currWheel = currWheel;
+		this.currPlayer = 0;
+	}
 
-  startRound() {
-    puzzle = new Puzzle();
-    wheel = new Wheel();
-    puzzle.getCategory();
-    domUpdates.displayCategory();
-    this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
-    puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
-    console.log('4-splitanswer', puzzle.currAnswer)
-  }
+	startRound() {
+		puzzle = new Puzzle();
+		wheel = new Wheel();
 
-  bankruptPlayer() {
-    game.players[round.currPlayer].score = 0;
-    domUpdates.displayScore(0)
-    this.switchPlayer();
-  }
+		puzzle.getCategory();
+		domUpdates.displayCategory();
 
-  switchPlayer() {
-    if (game.players[this.currPlayer + 1]) {
-      this.currPlayer++;
-      changePlayerAnimation(round.currPlayer);
+		this.currWheel = wheel.randomizeWheel(wheel.valuesArray);
+		puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+		console.log('4-splitanswer', puzzle.currAnswer)
+	}
+
+	bankruptPlayer() {
+		game.players[round.currPlayer].score = 0;
+		domUpdates.displayScore(0);
+		disableLetters();
+		this.switchPlayer();
+	}
+
+	switchPlayer() {
+		if (game.players[this.currPlayer + 1]) {
+			this.currPlayer++;
+			changePlayerAnimation(round.currPlayer);
 			console.log('switchPlayer2', this.currPlayer);
     } else {
       this.currPlayer = 0;

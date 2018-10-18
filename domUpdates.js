@@ -21,31 +21,43 @@ const domUpdates = {
     categoryDisplay.innerText = category;
   },
 
+//handle player prompts//
   displaySpinValue() {
-    let wheelValue = wheel.generateRandomValue();
-    letterBank.classList.remove('avoid-clicks')
+    if (game.currentRound < 5) {
+      let wheelValue = wheel.generateRandomValue();
+      enableLetters();
 
-    if (typeof wheelValue === 'number' ) {
+      if (typeof wheelValue === 'number' ) {
+        gamePrompt.innerHTML = 
+          `You landed on 
+          <span>$${wheelValue}</span>
+          now <span>GUESS A CONSONANT</span>`;
+      } else if (wheelValue === 'LOSE A TURN') { 
+        disableLetters();
+        gamePrompt.innerHTML = 
+          `You landed on 
+          <span>${wheelValue}</span>
+           <span class='player-prompt'>NEXT PLAYER... </span>
+           <span>SPIN, BUY A VOWEL,
+           OR SOLVE THE PUZZLE</span>`;
+        round.switchPlayer();
+      } else {
+        round.bankruptPlayer();
+        gamePrompt.innerHTML = 
+          `You landed on 
+          <span>${wheelValue}</span>
+           your score is reset! <span class='player-prompt'>NEXT PLAYER... </span>
+           <span>SPIN, BUY A VOWEL, OR SOLVE 
+          THE PUZZLE</span>`;
+      }
+
+    } else {
+      let wheelValue = bonusWheel.generateRandomValue();
       gamePrompt.innerHTML = 
         `You landed on 
         <span>$${wheelValue}</span>
-        now <span>GUESS A CONSONANT</span>`;
-    } else if (wheelValue === 'LOSE A TURN') { 
-      gamePrompt.innerHTML = 
-        `You landed on 
-        <span>${wheelValue}</span>
-         <span class='player-prompt'>NEXT PLAYER... </span>
-         <span>SPIN, BUY A VOWEL,
-         OR SOLVE THE PUZZLE</span>`;
-      round.switchPlayer();
-    } else {
-      round.bankruptPlayer();
-      gamePrompt.innerHTML = 
-        `You landed on 
-        <span>${wheelValue}</span>
-         your score is reset! <span class='player-prompt'>NEXT PLAYER... </span>
-         <span>SPIN, BUY A VOWEL, OR SOLVE 
-        THE PUZZLE</span>`;
+        now <span>Guess THREE CONSONANTS
+         and ONE VOWEL</span>`;
     }
   },
 
@@ -71,6 +83,13 @@ const domUpdates = {
        THE PUZZLE</span>`;
   },
 
+  showBonusSpin() {
+    gamePrompt.innerHTML = 
+      `Bonus Round!
+      <span>SPIN THE WHEEL</span>`;
+  },
+
+//handle show/hide letters//
   disableConsonant(event) {
     if (event.target.classList.contains('consonant')) { 
       event.target.classList.add('change-opacity');
@@ -78,21 +97,29 @@ const domUpdates = {
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
-    letterBank.classList.add('avoid-clicks')
+    disableLetters();
   },
 
   disableVowel(event) {
     console.log('hi')
     if (event.target.classList.contains('vowel')) { 
       event.target.classList.add('change-opacity');
-      console.log(game.players[round.currPlayer])
       let letter = event.target.innerHTML;
+
       puzzle.checkGuessedLetter(letter)
       puzzle.checkGuessedVowelsArray();
       vowels.classList.add('hide');
     }
   },
-     
+  
+  displayBuyVowel() {
+    vowels.classList.add('showVowels');
+    let currentPlayer = game.players[round.currPlayer];
+    currentPlayer.buyVowel();
+    displayScore(game.players[round.currPlayer].score);
+  },
+
+//handle score displays// 
   displayScore(score) {
     if (round.currPlayer === 0) {
       playerOneScore.innerText = `$${score}`;
@@ -119,13 +146,7 @@ const domUpdates = {
     }  
   },
 
-  displayBuyVowel() {
-    vowels.classList.add('showVowels');
-    let currentPlayer = game.players[round.currPlayer];
-    currentPlayer.buyVowel();
-    displayScore(game.players[round.currPlayer].score);
-  },
-
+//handle board//
   displayGuessedLetter(event) {
     let guessedLetter = event.target.id;
     let boxes = document.querySelectorAll('.box');
@@ -165,6 +186,7 @@ const domUpdates = {
     })
   },
 
+//handle solve puzzle//
   displaySolvePuzzle() {
     solvePuzzle.classList.add('show-solve-puzzle-container');
     solvePuzzleInput.focus();
@@ -176,6 +198,7 @@ const domUpdates = {
     puzzle.checkSolvePuzzle(playerGuess)
   },
 
+//handle end of round//
   showWonRound() {
     gamePage.classList.add('game-blur');
     wonRound.classList.remove('hide');
@@ -184,9 +207,9 @@ const domUpdates = {
   hideWonRound() {
     wonRound.classList.add('hide');
     gamePage.classList.remove('game-blur')
-    game.winRound();
   },
     
+//misc. game functionality//
   newGame() {
     location.reload();
   },
@@ -198,7 +221,28 @@ const domUpdates = {
         currentRoundNumber.innerHTML = `ROUND ${round}`;
       }
     })
-  } 
+  },
+
+//handle bonus round//
+  headerBonusRound() {
+    currentRoundNumber.innerHTML = `${'Bonus Round'}`;
+  },
+
+  displayBonusVowels() {
+    bonusVowels.classList.remove('hide');
+    bonusVowels.classList.add('show-bonus-vowels');
+  },
+
+  disableRoundButtons() {
+    guessPuzzleButton.classList.add('avoid-clicks');
+    guessPuzzleButton.classList.add('disabled');
+    buyVowelButton.classList.add('avoid-clicks');
+    buyVowelButton.classList.add('disabled');
+  },
+
+
+  
+
 };
 
 function changePlayerAnimation(currentPlayer) {
@@ -218,29 +262,38 @@ function changePlayerAnimation(currentPlayer) {
     let playerNum = playerOneName;
     addNameAnimation(playerNum)
   }
-}
+
+};
 
 function addNameAnimation(playerNum) {
   playerNum.classList.add('animatePlayerName');
-}
+};
 
 function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
   playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
-}
+};
+
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
   for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
     if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
       boxes[i].classList.add('addWhite');
-    } 
+    }; 
     if (puzzle.currentPuzzle.correct_answer.charAt(i) === '-') {
       boxes[i].innerText = '-';
-    }
+    };
+    if (puzzle.currentPuzzle.correct_answer.charAt(i) === '\'') {
+      boxes[i].innerText = '\'';
+    };
+    if (puzzle.currentPuzzle.correct_answer.charAt(i) === '&') {
+      boxes[i].innerText = '&';
+    };
   }
-}
+};
+
 
 function displayScore(score) {
   console.log(game.players[round.currPlayer])
@@ -251,7 +304,20 @@ function displayScore(score) {
   } else {
     playerThreeScore.innerText = `$${score}`;
   }
+
+};
+
+function enableLetters() {
+  letterBank.classList.remove('avoid-clicks');
+};
+
+function disableLetters() {
+  letterBank.classList.add('avoid-clicks');
 }
+
+
+
+
 
 if (typeof module !== 'undefined') {
   module.exports = domUpdates;
