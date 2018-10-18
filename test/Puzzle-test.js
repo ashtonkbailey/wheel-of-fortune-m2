@@ -17,25 +17,25 @@ describe('Puzzle', () => {
   });
 
   //getCategory()
-  it('should get random puzzle for round one', () => {
+  it.skip('should get random puzzle for round one', () => {
     
     puzzle.getCategory();
 
   });
 
-  it('should get random puzzle for round two', () => {
+  it.skip('should get random puzzle for round two', () => {
     game = new Game(2);
 
     puzzle.getCategory();
   });
 
-  it('should get random puzzle for round three', () => {
+  it.skip('should get random puzzle for round three', () => {
     game = new Game(3);
 
     puzzle.getCategory();
   });
 
-  it('should get random puzzle for round four', () => {
+  it.skip('should get random puzzle for round four', () => {
     game = new Game(4);
 
     puzzle.getCategory();
@@ -93,7 +93,7 @@ describe('Puzzle', () => {
 
   });
 
-  it('should check guessed phrase against correct answer', () => {
+  it.skip('should check guessed phrase against correct answer', () => {
     puzzle.currentPuzzle = {  
       category: 'Around The House',
       number_of_words: 1,
