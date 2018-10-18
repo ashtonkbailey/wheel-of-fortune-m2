@@ -1,6 +1,3 @@
-let puzzle;
-let wheel;
-
 class BonusRound extends Round {
   constructor(currWheel, currPlayer) {
     super(currWheel, currPlayer);
@@ -15,7 +12,7 @@ class BonusRound extends Round {
 
     this.currWheel = bonusWheel.generateBonusArray(wheel.valuesArray);
     puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer);
-    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer))
   }
 
 }
