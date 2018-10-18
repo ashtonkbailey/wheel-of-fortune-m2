@@ -26,7 +26,7 @@ describe('Player', function() {
 
   });
 
-  it.skip('should update player grand total if player solves the puzzle', () => {
+  it.skip('should update player grand total at solve puzzle', () => {
     var game = new Game();
     var player = new Player();
     player.score = 200;
