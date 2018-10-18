@@ -1,5 +1,4 @@
-let puzzle;
-let wheel;
+let bonusWheel;
 
 class BonusRound extends Round {
   constructor(currWheel, currPlayer) {
@@ -7,15 +6,20 @@ class BonusRound extends Round {
   }
 
   startBonusRound() {
-    puzzle = new Puzzle;
-    wheel = new Wheel;
+    puzzle = new Puzzle();
+    wheel = new Wheel();
+    bonusWheel = new BonusWheel();
 
     puzzle.getCategory();
     domUpdates.displayCategory();
+    domUpdates.displayBonusVowels();
+    domUpdates.disableRoundButtons();
+    domUpdates.headerBonusRound();
+    domUpdates.showBonusSpin();
 
-    this.currWheel = bonusWheel.generateBonusArray(wheel.valuesArray);
+    this.currWheel = bonusWheel.generateBonusWheel(wheel.valuesArray);
     puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer);
-    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer)
+    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer))
   }
 
 }

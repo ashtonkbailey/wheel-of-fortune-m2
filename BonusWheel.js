@@ -5,35 +5,24 @@ class BonusWheel extends Wheel {
   }
 
   generateBonusWheel(valuesArray) {
-  let wheelArray = []
-  valuesArray.forEach((element) => {
-    if (typeof element === 'number') {
-      wheelArray.push(element)
-    }
-  })
+    let wheelArray = [];
+
+    valuesArray.forEach((element) => {
+      if (typeof element === 'number') {
+        wheelArray.push(element)
+      }
+    });
+
     this.newBonusWheelArray = wheelArray.map((element) => {
-    return element + 300
-  })
+      return element + 300
+    });
 
-
-
+    domUpdates.displaySpinValue();
   }
 
 
 
-
-
-
-
-
-
 }
-
-
-
-
-
-
 
 
 if (typeof module !== 'undefined') {

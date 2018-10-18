@@ -186,6 +186,7 @@ span {
   margin-bottom: 20px;
 }
 
+.keep-playing-button,
 .quit-button,
 .new-game-button, .game-button {
   font-size: 15px;
@@ -389,14 +390,26 @@ button:hover {
   display: flex;
   position: absolute;
   z-index: 1;
-  bottom: 100px;
-  right: 330px;
- /* height: 50px;*/
+  bottom: 200px;
+  right: 200px;
+}
+
+.show-bonus-vowels {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  bottom: 200px;
+  left: 200px;
 }
 
 .hide {
   display: none;
 }
+
+.disabled {
+  filter: brightness(35%);
+}
+
 .solve-puzzle-container {
   border: 1px solid black;
   background-color: #8ea0c2;;

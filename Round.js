@@ -21,7 +21,8 @@ class Round {
 
 	bankruptPlayer() {
 		game.players[round.currPlayer].score = 0;
-		domUpdates.displayScore(0)
+		domUpdates.displayScore(0);
+		disableLetters();
 		this.switchPlayer();
 	}
 

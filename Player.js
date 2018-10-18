@@ -6,7 +6,6 @@ class Player {
   }
 
   buyVowel() {
-    console.log('SUBTRACT 100')
     this.score = this.score - 100;
   }
 

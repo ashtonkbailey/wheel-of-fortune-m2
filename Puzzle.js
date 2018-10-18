@@ -18,7 +18,7 @@ class Puzzle {
 			this.getPuzzleThree();
 		} else if (game.currentRound === 4)	{
 			this.getPuzzleFour();
-		} else if (game.currentRound === true) {
+		} else if (game.currentRound === 5) {
 			this.getPuzzleTwo();
 		}
 	}
@@ -113,9 +113,9 @@ class Puzzle {
 		
 		if (upperCaseGuess === upperCaseAnswer) {
 			domUpdates.displayAnswer(event);
+			game.winRound();
 			domUpdates.showWonRound();
-			game.resetRound()
-
+			game.resetRound();
 		} else {
 			domUpdates.solvePuzzleFail();
 			round.switchPlayer();
