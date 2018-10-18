@@ -72,7 +72,7 @@ const domUpdates = {
         NEXT PLAYER... </span>
         <span>SPIN, BUY A VOWEL, OR SOLVE
          THE PUZZLE</span>`;
-    };
+    }
   },
 
   solvePuzzleFail() {
@@ -93,7 +93,7 @@ const domUpdates = {
   disableConsonant(event) {
     if (event.target.classList.contains('consonant')) { 
       event.target.classList.add('change-opacity');
-    };
+    }
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
@@ -242,6 +242,7 @@ const domUpdates = {
 
 
   
+
 };
 
 function changePlayerAnimation(currentPlayer) {
@@ -261,6 +262,7 @@ function changePlayerAnimation(currentPlayer) {
     let playerNum = playerOneName;
     addNameAnimation(playerNum)
   }
+
 };
 
 function addNameAnimation(playerNum) {
@@ -272,6 +274,7 @@ function updatePlayerNames() {
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
   playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
 };
+
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
@@ -291,6 +294,7 @@ function showBoard() {
   }
 };
 
+
 function displayScore(score) {
   console.log(game.players[round.currPlayer])
   if (round.currPlayer === 0) {
@@ -300,6 +304,7 @@ function displayScore(score) {
   } else {
     playerThreeScore.innerText = `$${score}`;
   }
+
 };
 
 function enableLetters() {

@@ -15,13 +15,5 @@ describe('Game', function() {
     expect(true).to.equal(true);
   });
 
-  it('should check length of the array', () => {
-    let round = new Round();
-    let puzzle = new Puzzle();
-    puzzle.guessedLetters = [];
-
-    game.switchPlayer();
-    expect(game.currPlayer).to.equal(game.players[1])
-  });
 
 });

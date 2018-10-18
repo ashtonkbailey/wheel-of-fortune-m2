@@ -1,7 +1,7 @@
 class BonusWheel extends Wheel {
   constructor(currWheelValue, valuesArray, generateRandomValue) {
     super(currWheelValue, valuesArray, generateRandomValue);
-    this.bonusWheelArray = [];
+    this.bonusWheelArray = null;
   }
 
   generateBonusWheel(valuesArray) {
@@ -23,7 +23,6 @@ class BonusWheel extends Wheel {
 
 
 }
-
 
 if (typeof module !== 'undefined') {
   module.exports = BonusWheel;

@@ -31,17 +31,16 @@ class Round {
 			this.currPlayer++;
 			changePlayerAnimation(round.currPlayer);
 			console.log('switchPlayer2', this.currPlayer);
-		} else {
-			this.currPlayer = 0;
-		}
-	}
+    } else {
+      this.currPlayer = 0;
+    }
+  }
 
-	resetPlayerScore() {
-		game.players.forEach(player => {
-			player.score = 0;
-		});
-	}
-
+  resetPlayerScore() {
+    game.players.forEach(player => {
+      player.score = 0;
+    });
+  }
 }
 
 if (typeof module !== 'undefined') {

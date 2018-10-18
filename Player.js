@@ -1,8 +1,7 @@
 class Player {
-  constructor(score, grandTotal, turn) {
+  constructor(score, grandTotal) {
     this.score = 0;
     this.grandTotal = 0;
-    this.turn = false;
   }
 
   buyVowel() {

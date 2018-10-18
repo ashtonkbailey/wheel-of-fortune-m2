@@ -64,9 +64,10 @@ class Puzzle {
 
 	checkGuessedLetter(letter) {
 		let guess = letter.toUpperCase();
+
     this.guessedLetters = this.currAnswer.filter((currentIndex) => {	
-			return currentIndex.includes(guess);
-		});
+      return currentIndex.includes(guess);
+    });
 
     return this.guessedLetters;
 	}
@@ -121,6 +122,7 @@ class Puzzle {
 			round.switchPlayer();
 		}
 	}
+
 }
 
 	
