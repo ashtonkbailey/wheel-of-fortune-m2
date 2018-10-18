@@ -6,7 +6,7 @@ Play there game here:
 
 https://ashtonkbailey.github.io/wheel-of-fortune-m2/
 
-(/images/readme-photo.png) 
+<img width="1360" alt="readme-photo" src="https://user-images.githubusercontent.com/39889553/47184409-d35a7800-d2e7-11e8-9b0f-0c627658d439.png">
 
 
 Versioning
