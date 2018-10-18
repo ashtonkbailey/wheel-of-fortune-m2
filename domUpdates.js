@@ -69,7 +69,8 @@ const domUpdates = {
          OR SOLVE THE PUZZLE</span>`;
     } else {
       gamePrompt.innerHTML =
-        `WRONG! <span class='player-prompt'>
+        `<span>WRONG!</span>
+         <span class='player-prompt'>
         NEXT PLAYER... </span>
         <span>SPIN, BUY A VOWEL, OR SOLVE
          THE PUZZLE</span>`;
