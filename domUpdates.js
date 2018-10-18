@@ -46,7 +46,7 @@ const domUpdates = {
          your score is reset! <span class='player-prompt'>NEXT PLAYER... </span>
          <span>SPIN, BUY A VOWEL, OR SOLVE 
         THE PUZZLE</span>`;
-    };
+    }
   },
 
   changePlayerPrompt(lettersArray) {
@@ -60,7 +60,7 @@ const domUpdates = {
         NEXT PLAYER... </span>
         <span>SPIN, BUY A VOWEL, OR SOLVE
          THE PUZZLE</span>`;
-    };
+    }
   },
 
   solvePuzzleFail() {
@@ -74,7 +74,7 @@ const domUpdates = {
   disableConsonant(event) {
     if (event.target.classList.contains('consonant')) { 
       event.target.classList.add('change-opacity');
-    };
+    }
     let letter = event.target.innerHTML;
     puzzle.checkGuessedLetter(letter);
     puzzle.checkGuessedLettersArray();
@@ -86,14 +86,10 @@ const domUpdates = {
     if (event.target.classList.contains('vowel')) { 
       event.target.classList.add('change-opacity');
       console.log(game.players[round.currPlayer])
-      // game.players[round.currPlayer].buyVowel();
-
       let letter = event.target.innerHTML;
       puzzle.checkGuessedLetter(letter)
       puzzle.checkGuessedVowelsArray();
       vowels.classList.add('hide');
-
-      // domUpdates.displayGuessedLetter(event)
     }
   },
      
@@ -189,60 +185,40 @@ const domUpdates = {
     wonRound.classList.add('hide');
     gamePage.classList.remove('game-blur')
     game.winRound();
-    // currentRoundNumber.classList.add('animateRoundNumber');
-    // categoryDisplay.classList.add('animateCategorydisplay');
   },
     
   newGame() {
     location.reload();
   },
 
-   updateRoundNumber() {
+  updateRoundNumber() {
     let rounds = [1, 2, 3, 4];
     rounds.forEach((round) => {
       if (game.currentRound === round) {
         currentRoundNumber.innerHTML = `ROUND ${round}`;
       }
     })
-  }
-
-  // updateRoundNumber() {
-  //   if (game.currentRound == 1) {
-  //     currentRoundNumber.innerHTML = 'ROUND 1';
-  //     // currentRoundNumber.classList.add('animateRoundNumber');
-  //   } else if (game.currentRound === 2) {
-  //     currentRoundNumber.innerHTML = 'ROUND 2';
-  //     // currentRoundNumber.classList.add('animateRoundNumber');
-  //   } else if (game.currentRound === 3) {
-  //     currentRoundNumber.innerHTML = 'ROUND 3';
-  //     // currentRoundNumber.classList.add('animateRoundNumber');
-  //   } else {
-  //     currentRoundNumber.innerHTML = 'ROUND 4';
-  //     // currentRoundNumber.classList.add('animateRoundNumber');
-  //   }
-  // }
-
-  
+  } 
 };
 
 function changePlayerAnimation(currentPlayer) {
-    if (currentPlayer === 1) {
-      playerOneName.classList.remove('animatePlayerName');
-      playerThreeName.classList.remove('animatePlayerName');
-      let playerNum = playerTwoName;
-      addNameAnimation(playerNum)
-    } else if (currentPlayer === 2) {
-      playerOneName.classList.remove('animatePlayerName');
-      playerTwoName.classList.remove('animatePlayerName');
-      let playerNum = playerThreeName;
-      addNameAnimation(playerNum)
-    } else {
-      playerTwoName.classList.remove('animatePlayerName');
-      playerThreeName.classList.remove('animatePlayerName');
-      let playerNum = playerOneName;
-      addNameAnimation(playerNum)
-    }
+  if (currentPlayer === 1) {
+    playerOneName.classList.remove('animatePlayerName');
+    playerThreeName.classList.remove('animatePlayerName');
+    let playerNum = playerTwoName;
+    addNameAnimation(playerNum)
+  } else if (currentPlayer === 2) {
+    playerOneName.classList.remove('animatePlayerName');
+    playerTwoName.classList.remove('animatePlayerName');
+    let playerNum = playerThreeName;
+    addNameAnimation(playerNum)
+  } else {
+    playerTwoName.classList.remove('animatePlayerName');
+    playerThreeName.classList.remove('animatePlayerName');
+    let playerNum = playerOneName;
+    addNameAnimation(playerNum)
   }
+}
 
 function addNameAnimation(playerNum) {
   playerNum.classList.add('animatePlayerName');
@@ -252,39 +228,30 @@ function updatePlayerNames() {
   playerOneName.innerText = nameOneInput.value || "PLAYER 1";
   playerTwoName.innerText = nameTwoInput.value || "PLAYER 2";
   playerThreeName.innerText = nameThreeInput.value || "PLAYER 3";
-};
-
-
-
-
+}
 
 function showBoard() {
   var boxes = document.querySelectorAll('.box');
-    for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
-      if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
-        boxes[i].classList.add('addWhite');
-      } 
-       if (puzzle.currentPuzzle.correct_answer.charAt(i) === '-') {
-        boxes[i].innerText = '-';
-      }
-    }
-
-  }
-
-  function displayScore(score) {
-    console.log(game.players[round.currPlayer])
-    if (round.currPlayer === 0) {
-      playerOneScore.innerText = `$${score}`;
-    } else if (round.currPlayer === 1) {
-      playerTwoScore.innerText = `$${score}`;
-    } else {
-      playerThreeScore.innerText = `$${score}`;
+  for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
+    if (puzzle.currentPuzzle.correct_answer.charAt(i) !== ' ') {
+      boxes[i].classList.add('addWhite');
+    } 
+    if (puzzle.currentPuzzle.correct_answer.charAt(i) === '-') {
+      boxes[i].innerText = '-';
     }
   }
+}
 
-
-
-
+function displayScore(score) {
+  console.log(game.players[round.currPlayer])
+  if (round.currPlayer === 0) {
+    playerOneScore.innerText = `$${score}`;
+  } else if (round.currPlayer === 1) {
+    playerTwoScore.innerText = `$${score}`;
+  } else {
+    playerThreeScore.innerText = `$${score}`;
+  }
+}
 
 if (typeof module !== 'undefined') {
   module.exports = domUpdates;

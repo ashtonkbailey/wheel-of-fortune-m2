@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-
+const Game = require('../Game.js');
 const Player = require('../Player.js');
 const Wheel = require('../Wheel.js');
 global.data = require('../library.js');
@@ -7,28 +7,6 @@ const Puzzle = require('../Puzzle.js');
 
 
 describe('Player', function() {
-
-  it.skip('should have a name', function() {
-    var player = new Player('Ashley');
-    expect(player.name).to.equal('Ashley');
-  });
-
-  it.skip('should have a score', function() {
-    var player = new Player('Ashton', 500);
-    expect(player.score).to.equal(500);
-  });
-
-  it.skip('should have a grand total', function() {
-    var player = new Player('John', 600, 15000)
-    expect(player.grandTotal).to.equal(15000);
-  });
-
-  it.skip('should receieve a value from the wheel after spin', () => {
-    var wheel = new Wheel;
-    var num = wheel.generateRandomValue()
-    var player = new Player('Daniel', 100, 5000);
-    expect(player.playerSpinValue).to.equal(num);
-  })
 
   it('should update score based on the length of the lettersArray', () => {
     var wheel = new Wheel();
@@ -41,9 +19,20 @@ describe('Player', function() {
   });
 
   it('should update player\'s score after buying a vowel', () => {
-    var player = new Player('John', 600, 15000)
+    var player = new Player();
+    player.score = 600;
     player.buyVowel();
     expect(player.score).to.equal(500);
+
+  });
+
+  it.skip('should update player grand total if player solves the puzzle', () => {
+    var game = new Game();
+    var player = new Player();
+    player.score = 200;
+    player.grandTotal = 800;
+    player.updateGrandTotal() 
+    expect(player.grandTotal).to.equal(1000)
 
   });
 

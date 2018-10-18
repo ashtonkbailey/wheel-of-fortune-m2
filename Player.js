@@ -1,12 +1,10 @@
 class Player {
-  constructor(score, grandTotal, turn) {
+  constructor(score, grandTotal) {
     this.score = 0;
     this.grandTotal = 0;
-    this.turn = false;
   }
 
   buyVowel() {
-    console.log('SUBTRACT 100')
     this.score = this.score - 100;
   }
 

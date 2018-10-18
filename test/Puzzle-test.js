@@ -17,24 +17,25 @@ describe('Puzzle', () => {
   });
 
   //getCategory()
-  it.skip('should get random puzzle for round one', () => {
-
+  it('should get random puzzle for round one', () => {
+    
     puzzle.getCategory();
+
   });
 
-  it.skip('should get random puzzle for round two', () => {
+  it('should get random puzzle for round two', () => {
     game = new Game(2);
 
     puzzle.getCategory();
   });
 
-  it.skip('should get random puzzle for round three', () => {
+  it('should get random puzzle for round three', () => {
     game = new Game(3);
 
     puzzle.getCategory();
   });
 
-  it.skip('should get random puzzle for round four', () => {
+  it('should get random puzzle for round four', () => {
     game = new Game(4);
 
     puzzle.getCategory();
