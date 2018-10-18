@@ -3,12 +3,15 @@ let bonusWheel;
 class BonusRound extends Round {
   constructor(currWheel, currPlayer) {
     super(currWheel, currPlayer);
+    this.consonants = [];
   }
 
   startBonusRound() {
     puzzle = new Puzzle();
-    wheel = new Wheel();
     bonusWheel = new BonusWheel();
+
+    bonusWheel.generateBonusWheel(wheel.valuesArray);  
+    this.currWheel = bonusWheel.bonusWheelArray;
 
     puzzle.getCategory();
     domUpdates.displayCategory();
@@ -17,9 +20,13 @@ class BonusRound extends Round {
     domUpdates.headerBonusRound();
     domUpdates.showBonusSpin();
 
-    this.currWheel = bonusWheel.generateBonusWheel(wheel.valuesArray);
     puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer);
-    console.log('split bonus answer', puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer))
+    this.getConsonants();
+    domUpdates.displayBonusConsonants(this.consonants);
+  }
+
+  getConsonants() {
+   
   }
 
 }

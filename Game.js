@@ -34,7 +34,6 @@ class Game {
       showBoard();
       changePlayerAnimation(round.currPlayer);
     } else {
-      console.log('bonusround!')
       bonusRound = new BonusRound();
       bonusRound.startBonusRound();
       showBoard();

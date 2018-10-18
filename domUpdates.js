@@ -52,7 +52,7 @@ const domUpdates = {
       }
 
     } else {
-      let wheelValue = bonusWheel.generateRandomValue();
+      let wheelValue = bonusWheel.currWheelValue;
       gamePrompt.innerHTML = 
         `You landed on 
         <span>$${wheelValue}</span>
@@ -160,12 +160,22 @@ const domUpdates = {
   },
 
   displayAnswer(event) {
-    let guessedLetter = event.target.id;
     let boxes = document.querySelectorAll('.box');
     let splitArray = puzzle.currAnswer;
 
     splitArray.forEach((letter, i) => {
       boxes[i].innerText = letter
+    })
+  },
+
+  displayBonusConsonants() {
+    let boxes = document.querySelectorAll('.box');
+    let consonants = bonusRound.consonants;
+
+    consonants.forEach((letter, i) => {
+      if (boxes[i] === letter) {
+        boxes[i].innerText = letter;
+      }
     })
   },
 
@@ -206,7 +216,8 @@ const domUpdates = {
 
   hideWonRound() {
     wonRound.classList.add('hide');
-    gamePage.classList.remove('game-blur')
+    gamePage.classList.remove('game-blur');
+    game.resetRound();
   },
     
 //misc. game functionality//
