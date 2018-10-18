@@ -1,9 +1,11 @@
 const { expect } = require('chai');
+const Game = require('../Game.js');
 global.Wheel = require('../Wheel.js');
 const BonusWheel = require('../BonusWheel.js');
 
 
 describe('BonusWheel', () => {
+
   let bonusWheel;
 
   beforeEach(() => {

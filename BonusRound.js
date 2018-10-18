@@ -3,7 +3,7 @@ let bonusWheel;
 class BonusRound extends Round {
   constructor(currWheel, currPlayer) {
     super(currWheel, currPlayer);
-    this.consonants = [];
+    this.bonusConsonants = null;
   }
 
   startBonusRound() {
@@ -25,8 +25,16 @@ class BonusRound extends Round {
     domUpdates.displayBonusConsonants(this.consonants);
   }
 
-  getConsonants() {
-   
+  getConsonants(puzzleAnswer) {
+    let vowels = 'AEIOU';
+    let consonants = puzzleAnswer.reduce((arr, letter) => {
+      if (!(vowels.includes(letter))) {
+        arr.push(letter)
+      }
+    return arr
+    }, [])
+
+    this.bonusConsonants = consonants;
   }
 
 }
