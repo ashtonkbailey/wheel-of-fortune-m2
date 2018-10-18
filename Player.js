@@ -10,6 +10,7 @@ class Player {
 
   updatePlayerScore(wheelValue, array) {
     var total = wheelValue * array.length
+
     this.score = this.score += total;
   }
 

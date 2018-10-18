@@ -50,6 +50,6 @@ newGameButton.addEventListener('click', domUpdates.newGame);
 
 keepPlaying.addEventListener('click', domUpdates.hideWonRound);
 
-bonusVowels.addEventListener('click', domUpdates);
+
 
 

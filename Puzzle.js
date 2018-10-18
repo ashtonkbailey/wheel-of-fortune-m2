@@ -70,7 +70,6 @@ class Puzzle {
 
   checkGuessedLettersArray() {
     let currentPlayer = game.players[round.currPlayer];
-
     if (this.guessedLetters.length > 0) {
       currentPlayer.updatePlayerScore(wheel.currWheelValue, this.guessedLetters);
       domUpdates.displayScore(currentPlayer.score);
