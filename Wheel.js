@@ -5,6 +5,7 @@ class Wheel {
     this.generateRandomValue = this.generateRandomValue.bind(this)
   }
 
+
   generateRandomValue() {
     this.currWheelValue = Math.floor(Math.random() * (this.valuesArray.length));
     return this.currWheelValue = this.valuesArray[this.currWheelValue];
