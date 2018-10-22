@@ -16,26 +16,39 @@ describe('Puzzle', () => {
     game = new Game();
   });
 
+  it('should default to an empty array for guessed Letters', function() {
+    expect(puzzle.guessedLetters).to.deep.equal([]);
+  });
+
+  it('should have a default puzzle set to null', function() {
+    expect(puzzle.currentPuzzle).to.equal(null);
+  });
+
+  it('should have a default answer set to null', function() {
+    expect(puzzle.currAnswer).to.equal(null);
+  });
+
   //getCategory()
-  it.skip('should get random puzzle for round one', () => {
-    
+  it('should get random puzzle for round one', () => {
+
     puzzle.getCategory();
+    
 
   });
 
-  it.skip('should get random puzzle for round two', () => {
+  it('should get random puzzle for round two', () => {
     game = new Game(2);
 
     puzzle.getCategory();
   });
 
-  it.skip('should get random puzzle for round three', () => {
+  it('should get random puzzle for round three', () => {
     game = new Game(3);
 
     puzzle.getCategory();
   });
 
-  it.skip('should get random puzzle for round four', () => {
+  it('should get random puzzle for round four', () => {
     game = new Game(4);
 
     puzzle.getCategory();
@@ -93,7 +106,7 @@ describe('Puzzle', () => {
 
   });
 
-  it.skip('should check guessed phrase against correct answer', () => {
+  it('should check guessed phrase against correct answer', () => {
     puzzle.currentPuzzle = {  
       category: 'Around The House',
       number_of_words: 1,

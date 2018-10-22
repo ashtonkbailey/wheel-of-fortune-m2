@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const Game = require('../Game.js');
+global.Game = require('../Game.js');
 const Player = require('../Player.js');
 const Wheel = require('../Wheel.js');
 global.data = require('../library.js');
@@ -7,6 +7,13 @@ const Puzzle = require('../Puzzle.js');
 
 
 describe('Player', function() {
+
+  it('should have a default score of 0', function() {
+    var wheel = new Wheel();
+    var puzzle = new Puzzle();
+    var player = new Player;
+    expect(player.score).to.equal(0);
+  });
 
   it('should update score based on the length of the lettersArray', () => {
     var wheel = new Wheel();
@@ -26,7 +33,7 @@ describe('Player', function() {
 
   });
 
-  it.skip('should update player grand total at solve puzzle', () => {
+  it('should update player grand total at solve puzzle', () => {
     var game = new Game();
     var player = new Player();
     player.score = 200;
