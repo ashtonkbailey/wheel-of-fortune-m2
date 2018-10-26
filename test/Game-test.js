@@ -2,7 +2,7 @@ const { expect } = require('chai');
 global.Player = require('../Player.js');
 global.Game = require('../Game.js');
 global.Puzzle = require('../Puzzle.js');
-const Round = require('../Round.js');
+global.Round = require('../Round.js');
 
 
 describe('Game', function() {
@@ -13,6 +13,7 @@ describe('Game', function() {
   beforeEach(() => {
     game = new Game();
     player = new Player();
+    puzzle = new Puzzle();
   });
 
   it('should return true', function() {
@@ -23,9 +24,9 @@ describe('Game', function() {
     expect(game.currentRound).to.equal(1);
   });
 
-  it('should have three player at the start of the game', function() {
+  it('should have three players at the start of the game', function() {
     game.startGame();
-    expect(game.players.length).to.deep.equal(3);
+    expect(game.players.length).to.equal(3);
   });
 
   it('should have a current player that defaults to the first player', function() {

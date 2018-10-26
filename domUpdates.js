@@ -1,5 +1,3 @@
-let game;
-
 const domUpdates = {
   hideStartMenu() {
     startContainer.classList.add('hide');
@@ -169,17 +167,6 @@ const domUpdates = {
     })
   },
 
-  displayBonusConsonants() {
-    let boxes = document.querySelectorAll('.box');
-    let consonants = bonusRound.consonants;
-
-    consonants.forEach((letter, i) => {
-      if (boxes[i] === letter) {
-        boxes[i].innerText = letter;
-      }
-    })
-  },
-
   removeBoard() {
     var boxes = document.querySelectorAll('.box');
     for (var i = 0; i < puzzle.currentPuzzle.correct_answer.length; i++ ) {
@@ -243,6 +230,20 @@ const domUpdates = {
   displayBonusVowels() {
     bonusVowels.classList.remove('hide');
     bonusVowels.classList.add('show-bonus-vowels');
+  },
+
+  displayBonusConsonants() {
+    let boxes = document.querySelectorAll('.box');
+    let consonants = bonusRound.bonusConsonants;
+    let splitArray = puzzle.currAnswer;
+
+    for (var i = 0; i < 3; i++) {
+      splitArray.forEach(letter => {
+        if (letter === consonants[i]) {
+          boxes[i].innerText = consonants[i];
+        }
+      })
+    }   
   },
 
   disableRoundButtons() {

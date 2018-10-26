@@ -36,6 +36,7 @@ class Game {
     } else {
       bonusRound = new BonusRound();
       bonusRound.startBonusRound();
+      changePlayerAnimation(bonusRound.currPlayer);
       showBoard();
       enableLetters();
     }
