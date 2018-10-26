@@ -7,6 +7,8 @@ class BonusRound extends Round {
   }
 
   startBonusRound() {
+    this.checkCurrPlayer();
+
     puzzle = new Puzzle();
     bonusWheel = new BonusWheel();
 
@@ -15,14 +17,22 @@ class BonusRound extends Round {
 
     puzzle.getCategory();
     domUpdates.displayCategory();
-    domUpdates.displayBonusVowels();
+    // domUpdates.displayBonusVowels();
     domUpdates.disableRoundButtons();
     domUpdates.headerBonusRound();
     domUpdates.showBonusSpin();
 
     puzzle.splitAnswer(puzzle.currentPuzzle.correct_answer);
-    this.getConsonants();
-    domUpdates.displayBonusConsonants(this.consonants);
+    this.getConsonants(puzzle.currAnswer);
+    domUpdates.displayBonusConsonants(this.bonusConsonants);
+  }
+
+  checkCurrPlayer() {
+    let sortedPlayers = game.players.sort((a, b) => {
+      return a.grandTotal - b.grandTotal;
+    })
+
+    this.currPlayer = sortedPlayers[0]
   }
 
   getConsonants(puzzleAnswer) {
@@ -35,6 +45,7 @@ class BonusRound extends Round {
     }, [])
 
     this.bonusConsonants = consonants;
+    console.log(this.bonusConsonants)
   }
 
 }

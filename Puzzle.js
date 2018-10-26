@@ -1,3 +1,5 @@
+let game;
+
 class Puzzle {
   constructor(guessedLetters, currentPuzzle, currAnswer) {
     this.guessedLetters = [];
@@ -54,6 +56,7 @@ class Puzzle {
 
   splitAnswer(answer) {
     let uppedAnswer = answer.toUpperCase();
+    console.log(uppedAnswer)
     this.currAnswer = uppedAnswer.split('');
     return this.currAnswer;
   }
